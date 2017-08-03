@@ -48,14 +48,12 @@
                       <thead>
                         <tr>
                           <th>No.</th>
-                          <th>NISN</th>
                           <th>NIS</th>                          
                           <th>Nama Siswa</th>
                           <th>Kelas</th>
                           <th>Jenis Kelamin</th>
                           <th>Agama</th>
-                          <th>Tempat Lahir</th>
-                          <th>Tanggal Lahir</th>
+                          <th>Tempat, Tanggal Lahir</th>
                           <th>Alamat</th>
                           <th>No Telp</th>
                           <th>Angkatan</th>
@@ -64,36 +62,27 @@
                       </thead>
 
                       <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>0004334478</td>
-                          <td>4811/1530.070</td>
-                          <td>Rianirsyah Dian Nugrahanto</td>
-                          <td>XI RPL 1</td>
-                          <td>Laki-Laki</td>
-                          <td>Islam</td>
-                          <td>Probolinggo</td>
-                          <td>26-04-2000</td>
-                          <td>Jl. Danau Ranau G6B/2</td>
-                          <td>082257883916</td>
-                          <td>25</td>
-                          <td>-</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>0004334478</td>
-                          <td>4811/1530.070</td>
-                          <td>Kurniawan Wira Handito</td>
-                          <td>XI RPL 2</td>
-                          <td>Laki-Laki</td>
-                          <td>Islam</td>
-                          <td>Probolinggo</td>
-                          <td>01-12-2000</td>
-                          <td>Jl. Danau Ranau G6B/2</td>
-                          <td>082257883916</td>
-                          <td>25</td>
-                          <td>-</td>
-                        </tr>
+                         <?php 
+                            $no = 1;
+                            foreach ($XIRPL as $data) {
+                              echo '
+                                <tr class="odd gradeX">
+                                  <td>'.$no.'</td>
+                                  <td>'.$data->nis.'</td>
+                                  <td>'.$data->nama_siswa.'</td>
+                                  <td>'.$data->kelas.'</td>
+                                  <td>'.$data->jenis_kelamin.'</td>
+                                  <td>'.$data->agama.'</td>
+                                  <td>'.$data->tempat_lahir.', '.$data->tanggal_lahir.'</td>
+                                  <td>'.$data->alamat.'</td>
+                                  <td>'.$data->no_telp.'</td>
+                                  <td>'.$data->angkatan.'</td>
+                                  <td>-</td>
+                                </tr>
+                                ';
+                              $no++;
+                            }
+                          ?>
                       </tbody>
                     </table>
                   </div>
@@ -127,17 +116,15 @@
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p>
                     <table id="datatable" class="table table-striped table-bordered">
-                      <thead>
+                       <thead>
                         <tr>
                           <th>No.</th>
-                          <th>NISN</th>
                           <th>NIS</th>                          
                           <th>Nama Siswa</th>
                           <th>Kelas</th>
                           <th>Jenis Kelamin</th>
                           <th>Agama</th>
-                          <th>Tempat Lahir</th>
-                          <th>Tanggal Lahir</th>
+                          <th>Tempat, Tanggal Lahir</th>
                           <th>Alamat</th>
                           <th>No Telp</th>
                           <th>Angkatan</th>
@@ -146,36 +133,27 @@
                       </thead>
 
                       <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>0004334478</td>
-                          <td>4811/1530.070</td>
-                          <td>Rianirsyah Dian Nugrahanto</td>
-                          <td>XI TKJ 1</td>
-                          <td>Laki-Laki</td>
-                          <td>Islam</td>
-                          <td>Probolinggo</td>
-                          <td>26-04-2000</td>
-                          <td>Jl. Danau Ranau G6B/2</td>
-                          <td>082257883916</td>
-                          <td>25</td>
-                          <td>-</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>0004334478</td>
-                          <td>4811/1530.070</td>
-                          <td>Kurniawan Wira Handito</td>
-                          <td>XI TKJ 2</td>
-                          <td>Laki-Laki</td>
-                          <td>Islam</td>
-                          <td>Probolinggo</td>
-                          <td>01-12-2000</td>
-                          <td>Jl. Danau Ranau G6B/2</td>
-                          <td>082257883916</td>
-                          <td>25</td>
-                          <td>-</td>
-                        </tr>
+                         <?php 
+                            $no = 1;
+                            foreach ($XITKJ as $data) {
+                              echo '
+                                <tr class="odd gradeX">
+                                  <td>'.$no.'</td>
+                                  <td>'.$data->nis.'</td>
+                                  <td>'.$data->nama_siswa.'</td>
+                                  <td>'.$data->kelas.'</td>
+                                  <td>'.$data->jenis_kelamin.'</td>
+                                  <td>'.$data->agama.'</td>
+                                  <td>'.$data->tempat_lahir.', '.$data->tanggal_lahir.'</td>
+                                  <td>'.$data->alamat.'</td>
+                                  <td>'.$data->no_telp.'</td>
+                                  <td>'.$data->angkatan.'</td>
+                                  <td>-</td>
+                                </tr>
+                                ';
+                              $no++;
+                            }
+                          ?>
                       </tbody>
                     </table>
                   </div>

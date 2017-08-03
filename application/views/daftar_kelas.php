@@ -50,29 +50,29 @@
                           <th>No.</th>
                           <th>Kode Kelas</th>
                           <th>Nama Kelas</th>                          
-                          <th>Wali Kelas</th>
+                          <th>Penanggung Jawab Kelas</th>
                           <th>Jumlah Siswa</th>
                           <th>Keterangan</th>
                         </tr>
                       </thead>
 
                       <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>0101</td>
-                          <td>X RPL 1</td>
-                          <td>Nugrahanto RD</td>
-                          <td>41</td>
-                          <td>-</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>1101</td>
-                          <td>X TKJ 1</td>
-                          <td>Rianirsyah DN</td>
-                          <td>40</td>
-                          <td>-</td>
-                        </tr>
+                        <?php 
+                            $no = 1;
+                            foreach ($X as $data) {
+                              echo '
+                                <tr class="odd gradeX">
+                                  <td>'.$no.'</td>
+                                  <td>'.$data->kode_kelas.'</td>
+                                  <td>'.$data->nama_kelas.'</td>
+                                  <td>'.$data->penanggung_jawab_kelas.'</td>
+                                  <td>'.$data->jumlah_siswa.'</td>
+                                  <td>-</td>
+                                </tr>
+                                ';
+                              $no++;
+                            }
+                          ?>
                       </tbody>
                     </table>
                   </div>
@@ -111,29 +111,29 @@
                           <th>No.</th>
                           <th>Kode Kelas</th>
                           <th>Nama Kelas</th>                          
-                          <th>Wali Kelas</th>
+                          <th>Penanggung Jawab Kelas</th>
                           <th>Jumlah Siswa</th>
                           <th>Keterangan</th>
                         </tr>
                       </thead>
                       
                       <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>0111</td>
-                          <td>XI RPL 1</td>
-                          <td>Nugrahanto RD</td>
-                          <td>41</td>
-                          <td>-</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>1111</td>
-                          <td>XI TKJ 1</td>
-                          <td>Rianirsyah DN</td>
-                          <td>40</td>
-                          <td>-</td>
-                        </tr>
+                        <?php 
+                            $no = 1;
+                            foreach ($XI as $data) {
+                              echo '
+                                <tr class="odd gradeX">
+                                  <td>'.$no.'</td>
+                                  <td>'.$data->kode_kelas.'</td>
+                                  <td>'.$data->nama_kelas.'</td>
+                                  <td>'.$data->penanggung_jawab_kelas.'</td>
+                                  <td>'.$data->jumlah_siswa.'</td>
+                                  <td>-</td>
+                                </tr>
+                                ';
+                              $no++;
+                            }
+                          ?>
                       </tbody>
                     </table>
                   </div>
@@ -172,29 +172,29 @@
                           <th>No.</th>
                           <th>Kode Kelas</th>
                           <th>Nama Kelas</th>                          
-                          <th>Wali Kelas</th>
+                          <th>Penanggung Jawab Kelas</th>
                           <th>Jumlah Siswa</th>
                           <th>Keterangan</th>
                         </tr>
                       </thead>
                       
                       <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>0121</td>
-                          <td>XII RPL 1</td>
-                          <td>Nugrahanto RD</td>
-                          <td>41</td>
-                          <td>-</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>1121</td>
-                          <td>XII TKJ 1</td>
-                          <td>Rianirsyah DN</td>
-                          <td>40</td>
-                          <td>-</td>
-                        </tr>
+                        <?php 
+                            $no = 1;
+                            foreach ($XII as $data) {
+                              echo '
+                                <tr class="odd gradeX">
+                                  <td>'.$no.'</td>
+                                  <td>'.$data->kode_kelas.'</td>
+                                  <td>'.$data->nama_kelas.'</td>
+                                  <td>'.$data->penanggung_jawab_kelas.'</td>
+                                  <td>'.$data->jumlah_siswa.'</td>
+                                  <td>-</td>
+                                </tr>
+                                ';
+                              $no++;
+                            }
+                          ?>
                       </tbody>
                     </table>
                   </div>

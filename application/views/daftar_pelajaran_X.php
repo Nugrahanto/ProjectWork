@@ -59,17 +59,81 @@
                       <tbody>
                         <tr>
                           <td>1</td>
-                          <td>B15</td>
-                          <td>Matematika</td>
-                          <td>Nugrahanto RD</td>
-                          <td>4 Jam</td>
+                          <td>1A</td>
+                          <td>Pendidikan Agama Islam</td>
+                          <td>M. Masyis Dzul Hilmi, M.Pd.</td>
+                          <td>2 Jam</td>
                           <td>Wajib</td>
                         </tr>
                         <tr>
                           <td>2</td>
-                          <td>A26</td>
+                          <td>2B</td>
+                          <td>Pendidikan Pancasila dan Kewarganegaraan</td>
+                          <td>Ria Cahya Kurnia Rahma, S.Pd.</td>
+                          <td>2 Jam</td>
+                          <td>Wajib</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>3C</td>
+                          <td>Bahasa Indonesia</td>
+                          <td>Felly Fitriani Supriyadil, S.Pd.</td>
+                          <td>2 Jam</td>
+                          <td>Wajib</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>4D</td>
+                          <td>Matematika</td>
+                          <td>Ria Cahya Kurnia Rahma, S.Pd.</td>
+                          <td>2 Jam</td>
+                          <td>Wajib</td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>5E</td>
                           <td>Sejarah Indonesia</td>
-                          <td>Rianirsyah DN</td>
+                          <td>Ria Cahya Kurnia Rahma, S.Pd.</td>
+                          <td>2 Jam</td>
+                          <td>Wajib</td>
+                        </tr>
+                        <tr>
+                          <td>6</td>
+                          <td>6F</td>
+                          <td>Bahasa Inggris</td>
+                          <td>Ria Cahya Kurnia Rahma, S.Pd.</td>
+                          <td>2 Jam</td>
+                          <td>Wajib</td>
+                        </tr>
+                        <tr>
+                          <td>7</td>
+                          <td>7G</td>
+                          <td>Seni Budaya</td>
+                          <td>Ria Cahya Kurnia Rahma, S.Pd.</td>
+                          <td>2 Jam</td>
+                          <td>Wajib</td>
+                        </tr>
+                        <tr>
+                          <td>8</td>
+                          <td>8H</td>
+                          <td>Prakarya dan Kewirausahaan</td>
+                          <td>Ria Cahya Kurnia Rahma, S.Pd.</td>
+                          <td>2 Jam</td>
+                          <td>Wajib</td>
+                        </tr>
+                        <tr>
+                          <td>9</td>
+                          <td>9I</td>
+                          <td>Pendidikan Jasmani, Olahraga &amp; Kesehatan</td>
+                          <td>Ria Cahya Kurnia Rahma, S.Pd.</td>
+                          <td>2 Jam</td>
+                          <td>Wajib</td>
+                        </tr>
+                        <tr>
+                          <td>10</td>
+                          <td>10J</td>
+                          <td>Bahasa Jawa</td>
+                          <td>Ria Cahya Kurnia Rahma, S.Pd.</td>
                           <td>2 Jam</td>
                           <td>Wajib</td>
                         </tr>

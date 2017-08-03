@@ -71,18 +71,19 @@
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Kelas <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="form_advanced.html">Tambah Kelas</a></li>
+                      <li><a href="<?php echo base_url(); ?>index.php/kelas/tambah_kelas">Tambah Kelas</a></li>
                       <li><a href="<?php echo base_url(); ?>index.php/kelas">Daftar Kelas</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> Karyawan <span class="fa fa-chevron-down" ></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="form_advanced.html"> Tambah Karyawan</a></li>
+                      <li><a href="<?php echo base_url(); ?>index.php/karyawan/tambah_karyawan"> Tambah Karyawan</a></li>
                       <li><a href="<?php echo base_url(); ?>index.php/karyawan">Daftar Karyawan</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Siswa <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
+                      <li><a href="<?php echo base_url(); ?>index.php/siswa/tambah_siswa">Tambah Siswa</a></li>
                       <li><a href="<?php echo base_url(); ?>index.php/siswa/kelas_10">X</a></li>
                       <li><a href="<?php echo base_url(); ?>index.php/siswa/kelas_11">XI</a></li>
                       <li><a href="<?php echo base_url(); ?>index.php/siswa/kelas_12">XII</a></li>
@@ -109,6 +110,47 @@
                       <li><a href="<?php echo base_url(); ?>index.php/catatan/kelas_12">XII</a></li>
                     </ul>
                   </li>
+                  <li><a href="<?php echo base_url(); ?>index.php/input_nilai"><i class="fa fa-apple"></i> Input Nilai </a>
+                  </li>
+                  <!-- <li><a><i class="fa fa-apple"></i> Mata Pelajaran <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a>X<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                          <li><a>RPL<span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                              <li class="sub_menu"><a href="<?php echo base_url(); ?>index.php/mata_pelajaran/kelas_10">Pendidikan Agama Islam</a>
+                              </li>
+                              <li><a href="#level2_1">Matematika</a>
+                              </li>
+                              <li><a href="#level2_2">Sejarah Indonesia</a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li><a>TKJ<span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                              <li class="sub_menu"><a href="level2.html">Pendidikan Agama Islam</a>
+                              </li>
+                              <li><a href="#level2_1">Matematika</a>
+                              </li>
+                              <li><a href="#level2_2">Sejarah Indonesia</a>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a>XI<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                          <li class="sub_menu"><a href="level2.html">Pendidikan Agama Islam</a>
+                          </li>
+                          <li><a href="#level2_1">Matematika</a>
+                          </li>
+                          <li><a href="#level2_2">Sejarah Indonesia</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a href="<?php echo base_url(); ?>index.php/catatan/kelas_12">XII</a></li>
+                    </ul>
+                  </li> -->
                 </ul>
               </div>
               <div class="menu_section">
@@ -326,37 +368,37 @@
     <script src="<?php echo base_url(); ?>assets/build/js/custom.min.js"></script>
     
           <script src="<?php echo base_url(); ?>assets/build/js/jquery-quickedit.js" type="text/javascript"></script>
-          <!-- <script type="text/javascript">
+          <script type="text/javascript">
             $(function () {
                 $('.table a').quickEdit({
                     blur: false,
                     checkold: true,
                     space: false,
-                    maxLength: 50,
+                    maxLength: 0,
                     showbtn: false,
                     submit: function (dom, newValue) {
                         dom.text(newValue);
                     }
                 });
-                $('#click_edit').on('click', function () {
-                    var edit = $(this).quickEdit('create', {
-                        prefix: '.qe_?',
-                        blur: true,
-                        autosubmit: false,
-                        checkold: true,
-                        space: false,
-                        submit: function (dom, newValue) {
-                            dom.text(newValue);
-                        },
-                        tmpl: '<span class="qe_scope input-group"><span><textarea rows="5" class="qe_input form-control" ></textarea></span>'
-                        + '<span class="input-group-btn" style="vertical-align: top;"><button class="btn btn-primary qe_submit" >确定</button>'
-                        + '<button class="btn btn-danger qe_cancel">取消</button></span></span>'
-                    });
-                    $(this).after(edit);
-                    $('textarea', edit)[0].select();
-                });
+                // $('#click_edit').on('click', function () {
+                //     var edit = $(this).quickEdit('create', {
+                //         prefix: '.qe_?',
+                //         blur: true,
+                //         autosubmit: false,
+                //         checkold: true,
+                //         space: false,
+                //         submit: function (dom, newValue) {
+                //             dom.text(newValue);
+                //         },
+                //         tmpl: '<span class="qe_scope input-group"><span><textarea rows="5" class="qe_input form-control" ></textarea></span>'
+                //         + '<span class="input-group-btn" style="vertical-align: top;"><button class="btn btn-primary qe_submit" >确定</button>'
+                //         + '<button class="btn btn-danger qe_cancel">取消</button></span></span>'
+                //     });
+                //     $(this).after(edit);
+                //     $('textarea', edit)[0].select();
+                // });
             })
-        </script> -->
+        </script>
         <script type="text/javascript">
           $(function () {
             $('.nilai').hide();
@@ -368,7 +410,7 @@
             }).val("1");
           });
         </script>
-        <script type="text/javascript">
+        <!-- <script type="text/javascript">
           // function trclick(){console.log('tr clicked')};
 
           function a1(event){  
@@ -382,8 +424,6 @@
                   }
                   document.getElementById("1").innerHTML = txt;
           };
-        </script>
-
-  
+        </script> -->  
   </body>
 </html>

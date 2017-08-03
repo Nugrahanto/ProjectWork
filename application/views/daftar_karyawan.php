@@ -48,40 +48,39 @@
                       <thead>
                         <tr>
                           <th>No.</th>
-                          <th>Kode Guru</th>
+                          <th>Kode Karyawan</th>
                           <th>NIP</th>                          
                           <th>Nama</th>
-                          <th>Mata Pelajaran</th>
+                          <th>Tempat, Tanggal Lahir</th>
                           <th>Jenis Kelamin</th>
                           <th>Alamat</th>
                           <th>No Telp</th>
                           <th>Keterangan</th>
+                          <th>Opsi</th>
                         </tr>
                       </thead>
 
                       <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>A25</td>
-                          <td>0004334478</td>
-                          <td>Nugrahanto RD</td>
-                          <td>Matematika</td>
-                          <td>Laki-Laki</td>
-                          <td>Jl. Danau Ranau Pane</td>
-                          <td>082257883916</td>
-                          <td>-</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>A26</td>
-                          <td>0004334479</td>
-                          <td>Rianirsyah DN</td>
-                          <td>Sejarah Indonesia</td>
-                          <td>Laki-Laki</td>
-                          <td>Jl. Danau Ranau </td>
-                          <td>082257883916</td>
-                          <td>-</td>
-                        </tr>
+                         <?php 
+                            $no = 1;
+                            foreach ($guru as $data) {
+                              echo '
+                                <tr class="odd gradeX">
+                                  <td>'.$no.'</td>
+                                  <td>'.$data->kode_karyawan.'</td>
+                                  <td>'.$data->nip.'</td>
+                                  <td>'.$data->nama_karyawan.'</td>
+                                  <td>'.$data->tempat_lahir.', '.$data->tanggal_lahir.'</td>
+                                  <td>'.$data->jenis_kelamin.'</td>
+                                  <td>'.$data->alamat_karyawan.'</td>
+                                  <td>'.$data->no_telp.'</td>
+                                  <td>'.$data->status.' '.$data->mapel1.', '.$data->mapel2.' </td>
+                                  <td><a href="'.base_url().'index.php/karyawan/edit_karyawan/'.$data->kode_karyawan.'"><i class="glyphicon glyphicon-pencil"></i></a></td>
+                                </tr>
+                                ';
+                              $no++;
+                            }
+                          ?>
                       </tbody>
                     </table>
                   </div>
@@ -118,40 +117,39 @@
                       <thead>
                         <tr>
                           <th>No.</th>
-                          <th>Kode Guru</th>
+                          <th>Kode Karyawan</th>
                           <th>NIP</th>                          
                           <th>Nama</th>
-                          <th>Mata Pelajaran</th>
+                          <th>Tempat, Tanggal Lahir</th>
                           <th>Jenis Kelamin</th>
                           <th>Alamat</th>
                           <th>No Telp</th>
                           <th>Keterangan</th>
+                          <th>Opsi</th>
                         </tr>
                       </thead>
 
                       <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>A25</td>
-                          <td>0004334478</td>
-                          <td>Nugrahanto RD</td>
-                          <td>Matematika</td>
-                          <td>Laki-Laki</td>
-                          <td>Jl. Danau Ranau Pane</td>
-                          <td>082257883916</td>
-                          <td>-</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>A26</td>
-                          <td>0004334479</td>
-                          <td>Rianirsyah DN</td>
-                          <td>Sejarah Indonesia</td>
-                          <td>Laki-Laki</td>
-                          <td>Jl. Danau Ranau </td>
-                          <td>082257883916</td>
-                          <td>-</td>
-                        </tr>
+                        <?php 
+                            $no = 1;
+                            foreach ($tu as $data) {
+                              echo '
+                                <tr class="odd gradeX">
+                                  <td>'.$no.'</td>
+                                  <td>'.$data->kode_karyawan.'</td>
+                                  <td>'.$data->nip.'</td>
+                                  <td>'.$data->nama_karyawan.'</td>
+                                  <td>'.$data->tempat_lahir.', '.$data->tanggal_lahir.'</td>
+                                  <td>'.$data->jenis_kelamin.'</td>
+                                  <td>'.$data->alamat_karyawan.'</td>
+                                  <td>'.$data->no_telp.'</td>
+                                  <td>'.$data->status.'</td>
+                                  <td><a href="'.base_url().'index.php/karyawan/edit_karyawan/'.$data->kode_karyawan.'"><i class="glyphicon glyphicon-pencil"></i></a></td>
+                                </tr>
+                                ';
+                            $no++;
+                          }
+                        ?>
                       </tbody>
                     </table>
                   </div>
@@ -188,40 +186,39 @@
                       <thead>
                         <tr>
                           <th>No.</th>
-                          <th>Kode Guru</th>
+                          <th>Kode Karyawan</th>
                           <th>NIP</th>                          
                           <th>Nama</th>
-                          <th>Mata Pelajaran</th>
+                          <th>Tempat, Tanggal Lahir</th>
                           <th>Jenis Kelamin</th>
                           <th>Alamat</th>
                           <th>No Telp</th>
                           <th>Keterangan</th>
+                          <th>Opsi</th>
                         </tr>
                       </thead>
 
                       <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>A25</td>
-                          <td>0004334478</td>
-                          <td>Nugrahanto RD</td>
-                          <td>Matematika</td>
-                          <td>Laki-Laki</td>
-                          <td>Jl. Danau Ranau Pane</td>
-                          <td>082257883916</td>
-                          <td>-</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>A26</td>
-                          <td>0004334479</td>
-                          <td>Rianirsyah DN</td>
-                          <td>Sejarah Indonesia</td>
-                          <td>Laki-Laki</td>
-                          <td>Jl. Danau Ranau </td>
-                          <td>082257883916</td>
-                          <td>-</td>
-                        </tr>
+                         <?php 
+                            $no = 1;
+                            foreach ($kesiswaan as $data) {
+                              echo '
+                                <tr class="odd gradeX">
+                                  <td>'.$no.'</td>
+                                  <td>'.$data->kode_karyawan.'</td>
+                                  <td>'.$data->nip.'</td>
+                                  <td>'.$data->nama_karyawan.'</td>
+                                  <td>'.$data->tempat_lahir.', '.$data->tanggal_lahir.'</td>
+                                  <td>'.$data->jenis_kelamin.'</td>
+                                  <td>'.$data->alamat_karyawan.'</td>
+                                  <td>'.$data->no_telp.'</td>
+                                  <td>'.$data->status.'</td>
+                                  <td><a href="'.base_url().'index.php/karyawan/edit_karyawan/'.$data->kode_karyawan.'"><i class="glyphicon glyphicon-pencil"></i></a></td>
+                                </tr>
+                                ';
+                            $no++;
+                          }
+                        ?>
                       </tbody>
                     </table>
                   </div>

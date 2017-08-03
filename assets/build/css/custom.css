@@ -2196,6 +2196,10 @@ span.section {
     border-color: #CCD0D7;
     box-shadow: none !important
 }
+.label-front{
+    width: 100%;
+    margin: 12% 0% 0% 0%;
+}
 legend {
     font-size: 18px;
     color: inherit
