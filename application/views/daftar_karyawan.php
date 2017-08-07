@@ -200,6 +200,7 @@
 
                       <tbody>
                          <?php 
+                            $guru = "Guru";
                             $no = 1;
                             foreach ($kesiswaan as $data) {
                               echo '
@@ -212,7 +213,7 @@
                                   <td>'.$data->jenis_kelamin.'</td>
                                   <td>'.$data->alamat_karyawan.'</td>
                                   <td>'.$data->no_telp.'</td>
-                                  <td>'.$data->status.'</td>
+                                  <td>'.$data->status.', '.$guru.' '.$data->mapel1.'</td>
                                   <td><a href="'.base_url().'index.php/karyawan/edit_karyawan/'.$data->kode_karyawan.'"><i class="glyphicon glyphicon-pencil"></i></a></td>
                                 </tr>
                                 ';

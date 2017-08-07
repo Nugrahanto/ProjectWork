@@ -30,7 +30,7 @@ class Karyawan_model extends CI_Model {
 	{
 		$guru = "Guru";
 		return $this->db->where('status = "'.$guru.'"')
-						->order_by('mapel1','ASC')
+						->order_by('kode_karyawan','ASC')
 						->get('tb_karyawan')						
 						->result();
 	}

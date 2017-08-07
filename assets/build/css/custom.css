@@ -2167,6 +2167,9 @@ button,
 .input-group {
     margin-bottom: 10px
 }
+.input-hide{
+    padding: 10px;
+}
 .ln_solid {
     border-top: 1px solid #e5e5e5;
     color: #ffffff;

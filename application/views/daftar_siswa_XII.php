@@ -50,14 +50,14 @@
                           <th>No.</th>
                           <th>NIS</th>                          
                           <th>Nama Siswa</th>
-                          <th>Kelas</th>
-                          <th>Jenis Kelamin</th>
+                          <th class="col-md-1">Kelas</th>
+                          <th class="col-md-1">Jenis Kelamin</th>
                           <th>Agama</th>
                           <th>Tempat, Tanggal Lahir</th>
-                          <th>Alamat</th>
+                          <th class="col-md-2">Alamat</th>
                           <th>No Telp</th>
                           <th>Angkatan</th>
-                          <th>Keterangan</th>
+                          <th>Opsi</th>
                         </tr>
                       </thead>
 
@@ -77,7 +77,7 @@
                                   <td>'.$data->alamat.'</td>
                                   <td>'.$data->no_telp.'</td>
                                   <td>'.$data->angkatan.'</td>
-                                  <td>-</td>
+                                  <td><a href="'.base_url().'index.php/siswa/edit_siswa/'.$data->nis.'"><i class="glyphicon glyphicon-pencil"></i></a></td>
                                 </tr>
                                 ';
                               $no++;
@@ -128,7 +128,7 @@
                           <th>Alamat</th>
                           <th>No Telp</th>
                           <th>Angkatan</th>
-                          <th>Keterangan</th>
+                          <th>Opsi</th>
                         </tr>
                       </thead>
 
@@ -148,7 +148,7 @@
                                   <td>'.$data->alamat.'</td>
                                   <td>'.$data->no_telp.'</td>
                                   <td>'.$data->angkatan.'</td>
-                                  <td>-</td>
+                                  <td><a href="'.base_url().'index.php/siswa/edit_siswa/'.$data->nis.'"><i class="glyphicon glyphicon-pencil"></i></a></td>
                                 </tr>
                                 ';
                               $no++;

@@ -18,16 +18,21 @@
 
             <div class="clearfix"></div>
             <br>
+           <?php
+                if (!empty($notif_sukses)) {
+                    echo '<div class="alert alert-success">'.$notif_sukses.'</div>';
+                }
+            ?>
             <?php
-                if (!empty($notif)) {
-                    echo '<div class="alert alert-success">'.$notif.'</div>';
+                if (!empty($notif_gagal)) {
+                    echo '<div class="alert alert-danger">'.$notif_gagal.'</div>';
                 }
             ?>
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Tambah Siswa - Grosiran </h2>
+                    <h2>Edit Siswa </h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -40,47 +45,14 @@
                           </li>
                         </ul>
                       </li>
-                      <li><a href="<?php echo base_url();?>index.php/siswa/tambah_siswa_folder"><i class="fa fa-refresh"></i></a>
+                      <li><a href="<?php echo base_url();?>index.php/siswa/kelas_12"><i class="fa fa-arrow-left"></i></a>
                       </li>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" class="form-horizontal form-label-left" method="post" enctype="multipart/form-data" action="<?php echo base_url();?>index.php/siswa/tambah_siswa_grosir">          
-                      <input type="file" name="file" id="file-6" class="inputfile inputhide inputfile-5" data-multiple-caption="{count} files selected" multiple />
-                      <label for="file-6"><figure><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg></figure> <span></span></label>
-                      <input type="submit" name="submit" value="Submit" class="btn btn-success">
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Tambah Siswa - Satuan </h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a href="<?php echo base_url();?>index.php/siswa/tambah_siswa"><i class="fa fa-refresh"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" enctype="multipart/form-data" action="<?php echo base_url();?>index.php/siswa/simpan_siswa">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" enctype="multipart/form-data" action="<?php echo base_url();?>index.php/siswa/do_edit_siswa/<?php echo $edit_siswa->nis; ?>">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Tingkat <span class="required">*</span></label>
@@ -123,31 +95,24 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nis">NIS <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="nis"" name="nis" required="required" placeholder="4811/1530.070" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_siswa">Nama Siswa <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="nama_siswa" name="nama_siswa" required="required" placeholder="Rianirsyah Dian Nugrahanto" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="nama_siswa" name="nama_siswa" required="required" value="<?php echo $edit_siswa->nama_siswa; ?>" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tempat_lahir">Tempat Lahir <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="tempat_lahir" name="tempat_lahir" required="required" placeholder="Probolinggo" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="tempat_lahir" name="tempat_lahir" required="required" value="<?php echo $edit_siswa->tempat_lahir; ?>" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tanggal_lahir">Tanggal Lahir <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="tanggal_lahir" name="tanggal_lahir" required="required" placeholder="2000-04-26" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="tanggal_lahir" name="tanggal_lahir" required="required" value="<?php echo $edit_siswa->tanggal_lahir; ?>" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
@@ -187,14 +152,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="alamat">Alamat Siswa<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <textarea id="alamat" name="alamat" required="required" class="form-control" rows="5" placeholder='Jl. Danau Ranau G6B/2 Sawojajar, Malang, Jawa Timur, Indonesia'></textarea>
+                          <textarea id="alamat" name="alamat" required="required" class="form-control" rows="5"><?php echo $edit_siswa->alamat; ?></textarea>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nomor_telp">Nomor Telepon <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="nomor_telp" name="no_telp" required="required" placeholder="0852xxxxxxxx" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="nomor_telp" name="no_telp" required="required" value="<?php echo $edit_siswa->no_telp; ?>" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
