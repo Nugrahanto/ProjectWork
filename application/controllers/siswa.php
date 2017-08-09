@@ -13,42 +13,29 @@ class Siswa extends CI_Controller {
 
 	public function index()
 	{	
-		
-	}
-
-	public function tambah_siswa()
-	{
-		$data['main_view'] = 'tambah_siswa';
+		$data['main_view'] = 'daftar_siswa';
+		$data['siswa'] = $this->siswa_model->get_data_siswa();
 		$this->load->view('template', $data);
 	}
-
-	// public function tambah_siswa_grosir()
-	// {
-	// 	$data['main_view'] = 'tambah_siswa_grosir';
-	// 	$this->load->view('template', $data);
-	// }
 
 	public function kelas_10()
 	{
 		$data['main_view'] = 'daftar_siswa_X';
-		$data['XRPL'] = $this->siswa_model->get_data_siswaXRPL();
-		$data['XTKJ'] = $this->siswa_model->get_data_siswaXTKJ();
+		$data['X'] = $this->siswa_model->get_data_siswaX();
 		$this->load->view('template', $data);
 	}
 
 	public function kelas_11()
 	{
 		$data['main_view'] = 'daftar_siswa_XI';
-		$data['XIRPL'] = $this->siswa_model->get_data_siswaXIRPL();
-		$data['XITKJ'] = $this->siswa_model->get_data_siswaXITKJ();
+		$data['XI'] = $this->siswa_model->get_data_siswaXI();
 		$this->load->view('template', $data);
 	}
 
 	public function kelas_12()
 	{
 		$data['main_view'] = 'daftar_siswa_XII';
-		$data['XIIRPL'] = $this->siswa_model->get_data_siswaXIIRPL();
-		$data['XIITKJ'] = $this->siswa_model->get_data_siswaXIITKJ();
+		$data['XII'] = $this->siswa_model->get_data_siswaXII();
 		$this->load->view('template', $data);
 	}
 
@@ -68,23 +55,32 @@ class Siswa extends CI_Controller {
 			$this->form_validation->set_rules('no_telp', 'Nomor Telp', 'trim|required');
 			$this->form_validation->set_rules('angkatan', 'Angkatan', 'trim|required');
 
-			if ($this->form_validation->run() == TRUE) {
-				
+			if ($this->form_validation->run() == TRUE) {				
 				if ($this->siswa_model->insert_siswa() == TRUE) {
-					$data['notif'] = 'Tambah Siswa Berhasil';
-					$data['main_view'] = 'tambah_siswa';
+					$data['notif_sukses'] = 'Berhasil Menambah Data!';
+					$data['main_view'] = 'daftar_siswa';
+					$data['siswa'] = $this->siswa_model->get_data_siswa();
 					$this->load->view('template', $data);
-				}else {
-					$data['notif'] = 'Tambah Siswa Gagal';
-					$data['main_view'] = 'tambah_siswa';
+
+				} else {
+					$data['notif_gagal'] = 'GAGAL Menambah Data!';
+					$data['main_view'] = 'daftar_siswa';
+					$data['siswa'] = $this->siswa_model->get_data_siswa();
 					$this->load->view('template', $data);
 				}
-			}else{
-				$data['notif'] = validation_errors();
-				$data['main_view'] = 'tambah_siswa';
+			} else {
+				$data['notif_gagal'] = validation_errors();
+				$data['main_view'] = 'daftar_siswa';
+					$data['siswa'] = $this->siswa_model->get_data_siswa();
 				$this->load->view('template', $data);
 			}
-		}	
+
+		} else {
+			$data['notif_gagal'] = validation_errors();
+			$data['main_view'] = 'daftar_siswa';
+			$data['siswa'] = $this->siswa_model->get_data_siswa();
+			$this->load->view('template', $data);
+		}
 	}
 
 	public function edit_siswa()

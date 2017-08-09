@@ -1,51 +1,37 @@
-          <div class="">
-            <div class="page-title">
-              <div class="title_left">
-                <h3>Users <small>Some examples to get you started</small></h3>
-              </div>
+    
+      <?php
+        if (!empty($notif_sukses)) {
+          echo '<div class="alert alert-success">'.$notif_sukses.'</div>';
+        }
+      ?>
+        <?php
+          if (!empty($notif_gagal)) {
+            echo '<div class="alert alert-danger">'.$notif_gagal.'</div>';
+        }
+      ?>
 
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div>
-                </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <div class="row">
+              <div class="col-xs-10">
+                <h1 class="box-title">Daftar Karyawan</h1>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a href="<?php echo base_url();?>index.php/karyawan/"><i class="glyphicon glyphicon-refresh"></i></a></li>
+                </ul>
+              </div>
+              <div class="col-xs-2">
+                <button type="button" class="btn btn-block btn-primary"  data-toggle="modal" data-target="#myModal">
+                <i class="glyphicon glyphicon-plus"></i>  Tambah Karyawan
+                </button>
               </div>
             </div>
-
-            <div class="clearfix"></div>
-
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Guru Mata Pelajaran <small>X/XI/XII</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                      DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
-                    </p>
-                    <table id="datatable" class="table table-striped table-bordered">
-                      <thead>
+            <hr>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
                         <tr>
                           <th>No.</th>
                           <th>Kode Karyawan</th>
@@ -63,7 +49,7 @@
                       <tbody>
                          <?php 
                             $no = 1;
-                            foreach ($guru as $data) {
+                            foreach ($karyawan as $data) {
                               echo '
                                 <tr class="odd gradeX">
                                   <td>'.$no.'</td>
@@ -75,155 +61,268 @@
                                   <td>'.$data->alamat_karyawan.'</td>
                                   <td>'.$data->no_telp.'</td>
                                   <td>'.$data->status.' '.$data->mapel1.', '.$data->mapel2.' </td>
-                                  <td><a href="'.base_url().'index.php/karyawan/edit_karyawan/'.$data->kode_karyawan.'"><i class="glyphicon glyphicon-pencil"></i></a></td>
+                                  <td>
+                                    <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#'.$data->kode_karyawan.'">
+                                    <i class="glyphicon glyphicon-pencil"></i> </button>
+                                    <a href="'.base_url().'index.php/karyawan/hapus_karyawan/'.$data->kode_karyawan.'" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> </a>  
+                                  </td>
                                 </tr>
                                 ';
                               $no++;
                             }
                           ?>
                       </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>          
-            </div>
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Tata Usaha <small></small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                      DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
-                    </p>
-                    <table id="datatable" class="table table-striped table-bordered">
-                      <thead>
-                        <tr>
-                          <th>No.</th>
-                          <th>Kode Karyawan</th>
-                          <th>NIP</th>                          
-                          <th>Nama</th>
-                          <th>Tempat, Tanggal Lahir</th>
-                          <th>Jenis Kelamin</th>
-                          <th>Alamat</th>
-                          <th>No Telp</th>
-                          <th>Keterangan</th>
-                          <th>Opsi</th>
-                        </tr>
-                      </thead>
-
-                      <tbody>
-                        <?php 
-                            $no = 1;
-                            foreach ($tu as $data) {
-                              echo '
-                                <tr class="odd gradeX">
-                                  <td>'.$no.'</td>
-                                  <td>'.$data->kode_karyawan.'</td>
-                                  <td>'.$data->nip.'</td>
-                                  <td>'.$data->nama_karyawan.'</td>
-                                  <td>'.$data->tempat_lahir.', '.$data->tanggal_lahir.'</td>
-                                  <td>'.$data->jenis_kelamin.'</td>
-                                  <td>'.$data->alamat_karyawan.'</td>
-                                  <td>'.$data->no_telp.'</td>
-                                  <td>'.$data->status.'</td>
-                                  <td><a href="'.base_url().'index.php/karyawan/edit_karyawan/'.$data->kode_karyawan.'"><i class="glyphicon glyphicon-pencil"></i></a></td>
-                                </tr>
-                                ';
-                            $no++;
-                          }
-                        ?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>          
-            </div>
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Kesiswaan <small></small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                      DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
-                    </p>
-                    <table id="datatable" class="table table-striped table-bordered">
-                      <thead>
-                        <tr>
-                          <th>No.</th>
-                          <th>Kode Karyawan</th>
-                          <th>NIP</th>                          
-                          <th>Nama</th>
-                          <th>Tempat, Tanggal Lahir</th>
-                          <th>Jenis Kelamin</th>
-                          <th>Alamat</th>
-                          <th>No Telp</th>
-                          <th>Keterangan</th>
-                          <th>Opsi</th>
-                        </tr>
-                      </thead>
-
-                      <tbody>
-                         <?php 
-                            $guru = "Guru";
-                            $no = 1;
-                            foreach ($kesiswaan as $data) {
-                              echo '
-                                <tr class="odd gradeX">
-                                  <td>'.$no.'</td>
-                                  <td>'.$data->kode_karyawan.'</td>
-                                  <td>'.$data->nip.'</td>
-                                  <td>'.$data->nama_karyawan.'</td>
-                                  <td>'.$data->tempat_lahir.', '.$data->tanggal_lahir.'</td>
-                                  <td>'.$data->jenis_kelamin.'</td>
-                                  <td>'.$data->alamat_karyawan.'</td>
-                                  <td>'.$data->no_telp.'</td>
-                                  <td>'.$data->status.', '.$guru.' '.$data->mapel1.'</td>
-                                  <td><a href="'.base_url().'index.php/karyawan/edit_karyawan/'.$data->kode_karyawan.'"><i class="glyphicon glyphicon-pencil"></i></a></td>
-                                </tr>
-                                ';
-                            $no++;
-                          }
-                        ?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>          
+                </table>
+              </div>
+              <!-- /.box-body -->
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog modal-lg">
+        
+          <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Tambah Data Karyawan</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" method="post" id="form-pendaftaran" enctype="multipart/form-data" action="simpan_karyawan"> 
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="kode_karyawan" class="col-sm-2 control-label">Kode Karyawan</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="kode_karyawan" placeholder="Kode Karyawan"
+                    name="kode_karyawan" value="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="nip" class="col-sm-2 control-label">NIP <span class="required">*</span></label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nip" placeholder="NIP"
+                    name="nip" value="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="nama_karyawan" class="col-sm-2 control-label">Nama Karyawan <span class="required">*</span></label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nama_karyawan" placeholder="Nama Karyawan"
+                    name="nama_karyawan" value="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="tempat_lahir" class="col-sm-2 control-label">Tempat Lahir <span class="required">*</span></label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="tempat_lahir" placeholder="Tempat Lahir"
+                    name="tempat_lahir" value="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="tanggal_lahir" class="col-sm-2 control-label">Tanggal Lahir <span class="required">*</span></label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="tanggal_lahir" placeholder="Tanggal Lahir"
+                    name="tanggal_lahir" value="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="jenis_kelamin" class="col-sm-2 control-label">Jenis Kelamin <span class="required">*</span></label>
+
+                  <div class="col-sm-10">
+                    <select name="jenis_kelamin" class="form-control">
+                      <option value="">[Pilih Jenis Kelamin]</option>
+                      <option value="Laki-Laki">Laki - Laki</option>
+                      <option value="Perempuan">Perempuan</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="alamat_karyawan" class="col-sm-2 control-label">Alamat <span class="required">*</span></label>
+
+                  <div class="col-sm-10">
+                    <textarea id="alamat" name="alamat_karyawan" required="required" class="form-control" rows="5"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="no_telp" class="col-sm-2 control-label">Nomor Telepon <span class="required">*</span></label>
+
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="no_telp" placeholder="Nomor Telepon"
+                  name="no_telp" value="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="status" class="col-sm-2 control-label">Status <span class="required">*</span></label>
+
+                <div class="col-sm-10">
+                <select name="status" class="form-control">
+                  <option value="">[Pilih Status]</option>
+                  <option value="Guru">Guru</option>
+                  <option value="Tata Usaha">Karyawan TU</option>
+                  <option value="Kesiswaan">Kesiswaan</option>
+                </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="mapel1" class="col-sm-2 control-label">Mata Pelajaran 1 </label>
+
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="mapel1" placeholder="Mata Pelajaran 1"
+                  name="mapel1" value="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="mapel2" class="col-sm-2 control-label">Mata Pelajaran 2 </label>
+
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="mapel2" placeholder="Mata Pelajaran 2"
+                  name="mapel2" value="">
+                </div>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <input type="submit" name="submit" class="btn btn-info pull-right" value="Tambah"> 
+              </div>
+              <!-- /.box-footer -->
+            </form>
+        </div>
+      </div>  
+          
+        </div>
+      </div>
+
+      <?php
+        foreach ($karyawan as $data) {
+          echo '
+
+    <div class="modal fade" id="'.$data->kode_karyawan.'" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Data Karyawan</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" method="post" id="form-pendaftaran" enctype="multipart/form-data" action="edit_karyawan"> 
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="kode_karyawan" class="col-sm-2 control-label">Kode Karyawan</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="kode_karyawan" placeholder="Kode Karyawan"
+                    name="kode_karyawan" value="'.$data->kode_karyawan.'" readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="nip" class="col-sm-2 control-label">NIP <span class="required">*</span></label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nip" placeholder="NIP"
+                    name="nip" value="'.$data->nip.'">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="nama_karyawan" class="col-sm-2 control-label">Nama Karyawan <span class="required">*</span></label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nama_karyawan" placeholder="Nama Karyawan"
+                    name="nama_karyawan" value="'.$data->nama_karyawan.'">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="tempat_lahir" class="col-sm-2 control-label">Tempat Lahir <span class="required">*</span></label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="tempat_lahir" placeholder="Tempat Lahir"
+                    name="tempat_lahir" value="'.$data->tempat_lahir.'">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="tanggal_lahir" class="col-sm-2 control-label">Tanggal Lahir <span class="required">*</span></label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="tanggal_lahir" placeholder="Tanggal Lahir"
+                    name="tanggal_lahir" value="'.$data->tanggal_lahir.'">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="jenis_kelamin" class="col-sm-2 control-label">Jenis Kelamin <span class="required">*</span></label>
+
+                  <div class="col-sm-10">
+                    <select name="jenis_kelamin" class="form-control">
+                    <option value="">[Pilih Jenis Kelamin]</option>
+                    <option value="Laki-Laki">Laki - Laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="alamat_karyawan" class="col-sm-2 control-label">Alamat <span class="required">*</span></label>
+
+                  <div class="col-sm-10">
+                    <textarea id="alamat" name="alamat_karyawan" required="required" class="form-control" rows="5">'.$data->alamat_karyawan.'</textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="no_telp" class="col-sm-2 control-label">Nomor Telepon <span class="required">*</span></label>
+
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="no_telp" placeholder="Nomor Telepon"
+                  name="no_telp" value="'.$data->no_telp.'">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="status" class="col-sm-2 control-label">Status <span class="required">*</span></label>
+
+                <div class="col-sm-10">
+                <select name="status" class="form-control">
+                  <option value="">[Pilih Status]</option>
+                  <option value="Guru">Guru</option>
+                  <option value="Tata Usaha">Karyawan TU</option>
+                  <option value="Kesiswaan">Kesiswaan</option>
+                </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="mapel1" class="col-sm-2 control-label">Mata Pelajaran 1 </label>
+
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="mapel1" placeholder="Mata Pelajaran 1"
+                  name="mapel1" value="'.$data->mapel1.'">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="mapel2" class="col-sm-2 control-label">Mata Pelajaran 2 </label>
+
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="mapel2" placeholder="Mata Pelajaran 2"
+                  name="mapel2" value="'.$data->mapel2.'">
+                </div>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <input type="submit" name="submit" class="btn btn-info pull-right" value="Update"> 
+              </div>
+              <!-- /.box-footer -->
+            </form>
+        </div>
+      </div>  
+   
+    </div>
+    </div>
+
+
+
+    ';}
+  ?>

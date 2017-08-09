@@ -14,15 +14,7 @@ class Karyawan extends CI_Controller {
 	public function index()
 	{	
 		$data['main_view'] = 'daftar_karyawan';
-		$data['guru'] = $this->karyawan_model->get_data_guru();
-		$data['tu'] = $this->karyawan_model->get_data_tu();
-		$data['kesiswaan'] = $this->karyawan_model->get_data_kesiswaan();
-		$this->load->view('template', $data);
-	}
-
-	public function tambah_karyawan()
-	{
-		$data['main_view'] = 'tambah_karyawan';
+		$data['karyawan'] = $this->karyawan_model->get_data_karyawan();
 		$this->load->view('template', $data);
 	}
 
@@ -44,37 +36,36 @@ class Karyawan extends CI_Controller {
 
 			if ($this->form_validation->run() == TRUE) {				
 				if ($this->karyawan_model->insert_karyawan() == TRUE) {
-					$data['notif'] = 'Tambah Karyawan Berhasil';
-					$data['main_view'] = 'tambah_karyawan';
+					$data['notif_sukses'] = 'Berhasil Menambah Data!';
+					$data['main_view'] = 'daftar_karyawan';
+					$data['karyawan'] = $this->karyawan_model->get_data_karyawan();
 					$this->load->view('template', $data);
-				}else {
-					$data['notif'] = 'Tambah Karyawan Gagal';
-					$data['main_view'] = 'tambah_karyawan';
+
+				} else {
+					$data['notif_gagal'] = 'GAGAL Menambah Data!';
+					$data['main_view'] = 'daftar_karyawan';
+					$data['karyawan'] = $this->karyawan_model->get_data_karyawan();
 					$this->load->view('template', $data);
 				}
-			}else{
-				$data['notif'] = validation_errors();
-				$data['main_view'] = 'tambah_karyawan';
+			} else {
+				$data['notif_gagal'] = validation_errors();
+				$data['main_view'] = 'daftar_karyawan';
+				$data['karyawan'] = $this->karyawan_model->get_data_karyawan();
 				$this->load->view('template', $data);
 			}
+
+		} else {
+			$data['notif_gagal'] = validation_errors();
+			$data['main_view'] = 'daftar_karyawan';
+			$data['karyawan'] = $this->karyawan_model->get_data_karyawan();
+			$this->load->view('template', $data);
 		}	
 	}
 
 	public function edit_karyawan()
 	{
-		$data['main_view'] = 'edit_karyawan';
-				
-		$kode_karyawan = $this->uri->segment(3);
-
-		//
-		$data['edit_karyawan'] = $this->karyawan_model->detail_data_karyawan($kode_karyawan);
-		//mengload template dan data
-		$this->load->view('template', $data);	
-	}
-
-	public function do_edit_karyawan()
-	{
 		if ($this->input->post('submit')) {
+			$this->form_validation->set_rules('kode_karyawan', 'kode_karyawan', 'trim|required');
 			$this->form_validation->set_rules('nip', 'NIP', 'trim|required');
 			$this->form_validation->set_rules('nama_karyawan', 'Nama Karyawan', 'trim|required');
 			$this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'trim|required');
@@ -86,26 +77,51 @@ class Karyawan extends CI_Controller {
 			$this->form_validation->set_rules('mapel1', 'Mata Pelajaran');
 			$this->form_validation->set_rules('mapel2', 'Mata Pelajaran');
 
-			if ($this->form_validation->run() == TRUE) {
-				
-				if ($this->karyawan_model->edit_data_karyawan($this->uri->segment(3)) == TRUE) {
-					$data['notif_sukses'] = 'Edit Sukses';
-					$data['edit_karyawan'] = $this->karyawan_model->detail_data_karyawan($this->uri->segment(3));
-					$data['main_view'] = 'edit_karyawan';
+			if($this->form_validation->run() == TRUE){
+
+				$kode_karyawan = $this->input->post('kode_karyawan');
+
+				if ($this->karyawan_model->update_karyawan($kode_karyawan)){
+					$data['notif_sukses'] = 'Berhasil Mengedit Data!';
+					$data['main_view'] = 'daftar_karyawan';
+					$data['karyawan'] = $this->karyawan_model->get_data_karyawan();
 					$this->load->view('template', $data);
-				}
-				else{
-					$data['notif_gagal'] = 'Edit Gagal!';
-					$data['edit_karyawan'] = $this->karyawan_model->detail_data_karyawan($this->uri->segment(3));
-					$data['main_view'] = 'edit_karyawan';
+
+				} else {
+					$data['notif_gagal'] = 'GAGAL Mengedit Data!';
+					$data['main_view'] = 'daftar_karyawan';
+					$data['karyawan'] = $this->karyawan_model->get_data_karyawan();
 					$this->load->view('template', $data);
 				}
 			} else {
 				$data['notif_gagal'] = validation_errors();
-				$data['edit_karyawan'] = $this->karyawan_model->detail_data_karyawan($this->uri->segment(3));
-				$data['main_view'] = 'edit_karyawan';
+				$data['main_view'] = 'daftar_karyawan';
+				$data['karyawan'] = $this->karyawan_model->get_data_karyawan();
 				$this->load->view('template', $data);
 			}
+
+		} else {
+			$data['notif_gagal'] = validation_errors();
+			$data['main_view'] = 'daftar_karyawan';
+			$data['karyawan'] = $this->karyawan_model->get_data_karyawan();
+			$this->load->view('template', $data);
+		}
+	}
+
+	public function hapus_karyawan(){
+
+		$kode_karyawan = $this->uri->segment(3);
+
+		if ($this->karyawan_model->delete_karyawan($kode_karyawan)) {
+			$data['notif_sukses'] = 'Berhasil Menghapus Data!';
+			$data['main_view'] = 'daftar_karyawan';
+			$data['karyawan'] = $this->karyawan_model->get_data_karyawan();
+			$this->load->view('template', $data);
+		} else {
+			$data['notif_gagal'] = 'Gagal Menghapus Data!';
+			$data['main_view'] = 'daftar_karyawan';
+			$data['karyawan'] = $this->karyawan_model->get_data_karyawan();
+			$this->load->view('template', $data);
 		}
 	}
 

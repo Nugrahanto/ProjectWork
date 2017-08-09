@@ -30,6 +30,7 @@
               <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
             </div>
           </div>
+          <hr>
           <!-- /top tiles -->
           <div class="row">
             <div class="col-md-6 side2">

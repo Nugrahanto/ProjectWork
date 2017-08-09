@@ -1,51 +1,38 @@
-          <div class="">
-            <div class="page-title">
-              <div class="title_left">
-                <h3>Users <small>Some examples to get you started</small></h3>
+      
+
+      <?php
+        if (!empty($notif_sukses)) {
+          echo '<div class="alert alert-success">'.$notif_sukses.'</div>';
+        }
+      ?>
+        <?php
+          if (!empty($notif_gagal)) {
+            echo '<div class="alert alert-danger">'.$notif_gagal.'</div>';
+        }
+      ?>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <div class="row">
+              <div class="col-xs-10">
+                <h3 class="box-title">Data Siswa</h3>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a href="<?php echo base_url();?>index.php/kelas/"><i class="glyphicon glyphicon-refresh"></i></a></li>
+                </ul>
               </div>
-
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div>
-                </div>
+              <div class="col-xs-2">
+                <button type="button" class="btn btn-block btn-primary"  data-toggle="modal" data-target="#myModal">
+                <i class="glyphicon glyphicon-plus"></i>  Tambah Kelas
+                </button>
               </div>
             </div>
-
-            <div class="clearfix"></div>
-
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Kelas X <small>RPL/TKJ</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                      DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
-                    </p>
-                    <table id="datatable" class="table table-striped table-bordered">
-                      <thead>
+            <hr>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+               <thead>
                         <tr>
                           <th>No.</th>
                           <th>Kode Kelas</th>
@@ -59,7 +46,7 @@
                       <tbody>
                         <?php 
                             $no = 1;
-                            foreach ($X as $data) {
+                            foreach ($kelas as $data) {
                               echo '
                                 <tr class="odd gradeX">
                                   <td>'.$no.'</td>
@@ -74,131 +61,89 @@
                             }
                           ?>
                       </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>          
-            </div>
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Kelas XI <small>RPL/TKJ</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                      DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
-                    </p>
-                    <table id="datatable" class="table table-striped table-bordered">
-                      <thead>
-                        <tr>
-                          <th>No.</th>
-                          <th>Kode Kelas</th>
-                          <th>Nama Kelas</th>                          
-                          <th>Penanggung Jawab Kelas</th>
-                          <th>Jumlah Siswa</th>
-                          <th>Keterangan</th>
-                        </tr>
-                      </thead>
-                      
-                      <tbody>
-                        <?php 
-                            $no = 1;
-                            foreach ($XI as $data) {
-                              echo '
-                                <tr class="odd gradeX">
-                                  <td>'.$no.'</td>
-                                  <td>'.$data->kode_kelas.'</td>
-                                  <td>'.$data->nama_kelas.'</td>
-                                  <td>'.$data->penanggung_jawab_kelas.'</td>
-                                  <td>'.$data->jumlah_siswa.'</td>
-                                  <td>-</td>
-                                </tr>
-                                ';
-                              $no++;
-                            }
-                          ?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>          
-            </div>
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Kelas XII <small>RPL/TKJ</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                      DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
-                    </p>
-                    <table id="datatable" class="table table-striped table-bordered">
-                      <thead>
-                        <tr>
-                          <th>No.</th>
-                          <th>Kode Kelas</th>
-                          <th>Nama Kelas</th>                          
-                          <th>Penanggung Jawab Kelas</th>
-                          <th>Jumlah Siswa</th>
-                          <th>Keterangan</th>
-                        </tr>
-                      </thead>
-                      
-                      <tbody>
-                        <?php 
-                            $no = 1;
-                            foreach ($XII as $data) {
-                              echo '
-                                <tr class="odd gradeX">
-                                  <td>'.$no.'</td>
-                                  <td>'.$data->kode_kelas.'</td>
-                                  <td>'.$data->nama_kelas.'</td>
-                                  <td>'.$data->penanggung_jawab_kelas.'</td>
-                                  <td>'.$data->jumlah_siswa.'</td>
-                                  <td>-</td>
-                                </tr>
-                                ';
-                              $no++;
-                            }
-                          ?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>          
+                </table>
+              </div>
+              <!-- /.box-body -->
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog modal-lg">
+        
+          <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Tambah Data Kelas</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" method="post" id="form-pendaftaran" enctype="multipart/form-data" action="simpan_kelas"> 
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="kode_kelas" class="col-sm-2 control-label">Kode Kelas <span class="required">*</span></label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="kode_kelas" placeholder="Kode Kelas"
+                    name="kode_kelas" value="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="tingkat_kelas" class="col-sm-2 control-label">Tingkat Kelas <span class="required">*</span></label>
+
+                  <div class="col-sm-10">
+                    <select name="tingkat_kelas" class="form-control">
+                    <option value="">[Pilih Tingkat Kelas]</option>
+                    <option value="X">X</option>
+                    <option value="XI">XI</option>
+                    <option value="XII">XII</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="nama_kelas" class="col-sm-2 control-label">Nama Kelas <span class="required">*</span></label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nama_kelas" placeholder="Nama Kelas"
+                    name="nama_kelas" value="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="jumlah_siswa" class="col-sm-2 control-label">Jumlah Siswa <span class="required">*</span></label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="jumlah_siswa" placeholder="Jumlah Siswa"
+                    name="jumlah_siswa" value="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="penanggung_jawab" class="col-sm-2 control-label">Penanggung Jawab Kelas <span class="required">*</span></label>
+
+                  <div class="col-sm-10">
+                  <select name="penanggung_jawab" class="form-control">
+                    <option value="">[Pilih Wali Kelas]</option>
+                        <?php 
+                            $walikelas = $this->db->query("SELECT kode_karyawan, nama_karyawan FROM tb_karyawan")
+                                                  ->result();
+
+                            if (!empty($walikelas)) {
+                              foreach ($walikelas as $data) {
+                                echo "<option value='".$data->nama_karyawan."' >".$data->nama_karyawan."</option>";
+                                }
+                            }
+                        ?>
+                  </select>
+                  </div>
+                </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <input type="submit" name="submit" class="btn btn-info pull-right" value="Tambah"> 
+              </div>
+              <!-- /.box-footer -->
+            </form>
+          </div>
+        </div>  
+          
+        </div>
+      </div>

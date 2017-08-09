@@ -26,43 +26,17 @@ class Karyawan_model extends CI_Model {
 			return FALSE;
 	}
 
-	public function get_data_guru()
+	public function get_data_karyawan()
 	{
-		$guru = "Guru";
-		return $this->db->where('status = "'.$guru.'"')
-						->order_by('kode_karyawan','ASC')
+		return $this->db->order_by('kode_karyawan','ASC')
 						->get('tb_karyawan')						
 						->result();
 	}
 
-	public function get_data_tu()
-	{
-		$tu = "Tata Usaha";
-		return $this->db->where('status = "'.$tu.'"')
-						->order_by('kode_karyawan','ASC')
-						->get('tb_karyawan')
-						->result();
-	}
-
-	public function get_data_kesiswaan()
-	{
-		$ks = "Kesiswaan";
-		return $this->db->where('status = "'.$ks.'"')
-						->order_by('kode_karyawan','ASC')
-						->get('tb_karyawan ')
-						->result();
-	}
-
-	public function detail_data_karyawan($kode_karyawan){
-		return $this->db->where('kode_karyawan', $kode_karyawan)
-				 		->get('tb_karyawan')
-				 		->row();
-
-	}
-
-	public function edit_data_karyawan($kode_karyawan)
+	public function update_karyawan($kode_karyawan)
 	{
 		$data = array(
+			'kode_karyawan'		=> $this->input->post('kode_karyawan'),
 			'nip'				=> $this->input->post('nip'),
 			'nama_karyawan'		=> $this->input->post('nama_karyawan'),
 			'tempat_lahir'		=> $this->input->post('tempat_lahir'),
@@ -84,6 +58,18 @@ class Karyawan_model extends CI_Model {
 	  	    }else{
 	  	    	return FALSE;
 	  	    }
+	}
+
+	public function delete_karyawan($kode_karyawan){
+		return $this->db->where('kode_karyawan', $kode_karyawan)
+						->delete('tb_karyawan');
+
+
+		if($this->db->affected_rows()>0){
+			return TRUE;
+		} else {
+			return FALSE;
+		}
 	}
 
 }

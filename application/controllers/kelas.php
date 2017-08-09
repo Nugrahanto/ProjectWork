@@ -14,15 +14,7 @@ class Kelas extends CI_Controller {
 	public function index()
 	{	
 		$data['main_view'] = 'daftar_kelas';
-		$data['X'] = $this->kelas_model->get_data_kelasX();
-		$data['XI'] = $this->kelas_model->get_data_kelasXI();
-		$data['XII'] = $this->kelas_model->get_data_kelasXII();
-		$this->load->view('template', $data);
-	}
-
-	public function tambah_kelas()
-	{
-		$data['main_view'] = 'tambah_kelas';
+		$data['kelas'] = $this->kelas_model->get_data_kelas();
 		$this->load->view('template', $data);
 	}
 
@@ -35,22 +27,31 @@ class Kelas extends CI_Controller {
 			$this->form_validation->set_rules('jumlah_siswa', 'Jumlah Siswa', 'trim|required');
 			$this->form_validation->set_rules('penanggung_jawab', 'Penanggung Jawab Kelas', 'trim|required');
 
-			if ($this->form_validation->run() == TRUE) {
-				
+			if ($this->form_validation->run() == TRUE) {				
 				if ($this->kelas_model->insert_kelas() == TRUE) {
-					$data['notif'] = 'Tambah Kelas Berhasil';
-					$data['main_view'] = 'tambah_kelas';
+					$data['notif_sukses'] = 'Berhasil Menambah Data!';
+					$data['main_view'] = 'daftar_kelas';
+					$data['kelas'] = $this->kelas_model->get_data_kelas();
 					$this->load->view('template', $data);
-				}else {
-					$data['notif'] = 'Tambah Kelas Gagal';
-					$data['main_view'] = 'tambah_kelas';
+
+				} else {
+					$data['notif_gagal'] = 'GAGAL Menambah Data!';
+					$data['main_view'] = 'daftar_kelas';
+					$data['kelas'] = $this->kelas_model->get_data_kelas();
 					$this->load->view('template', $data);
 				}
-			}else{
-				$data['notif'] = validation_errors();
-				$data['main_view'] = 'tambah_kelas';
+			} else {
+				$data['notif_gagal'] = validation_errors();
+				$data['main_view'] = 'daftar_kelas';
+				$data['kelas'] = $this->kelas_model->get_data_kelas();
 				$this->load->view('template', $data);
 			}
+
+		} else {
+			$data['notif_gagal'] = validation_errors();
+			$data['main_view'] = 'daftar_kelas';
+			$data['kelas'] = $this->kelas_model->get_data_kelas();
+			$this->load->view('template', $data);
 		}	
 	}
 

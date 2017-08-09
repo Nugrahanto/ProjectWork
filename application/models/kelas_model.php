@@ -21,6 +21,15 @@ class Kelas_model extends CI_Model {
 			return FALSE;
 	}
 
+	public function get_data_kelas()
+	{
+		return $this->db->order_by('nama_kelas','ASC')
+						->get('tb_kelas')
+						->result();
+		// return $this->db->query("SELECT * FROM tb_kelas WHERE tingkat_kelas = '".$x."'")
+		// 				->result();				
+	}
+
 	public function get_data_kelasX()
 	{
 		$x = "X";

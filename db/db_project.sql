@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 07, 2017 at 08:14 AM
+-- Generation Time: Aug 09, 2017 at 05:46 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -155,6 +155,28 @@ INSERT INTO `tb_kelas` (`kode_kelas`, `tingkat_kelas`, `nama_kelas`, `penanggung
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_pelajaran`
+--
+
+CREATE TABLE `tb_pelajaran` (
+  `kode_pelajaran` varchar(5) NOT NULL,
+  `mata_pelajaran` varchar(50) NOT NULL,
+  `lama_jam` varchar(10) NOT NULL,
+  `keterangan` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_pelajaran`
+--
+
+INSERT INTO `tb_pelajaran` (`kode_pelajaran`, `mata_pelajaran`, `lama_jam`, `keterangan`) VALUES
+('1A', 'Pend. Agama Islam', '3', 'Kelompok A Wajib'),
+('2A', 'P K n', '2', 'Kelompok A Wajib'),
+('3A', 'Bahasa Indonesia', '4', 'Kelompok A Wajib');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_siswa`
 --
 
@@ -174,6 +196,13 @@ CREATE TABLE `tb_siswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `tb_siswa`
+--
+
+INSERT INTO `tb_siswa` (`nis`, `nama_siswa`, `tingkat`, `jurusan`, `kelas`, `jenis_kelamin`, `agama`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `no_telp`, `angkatan`) VALUES
+('4811/1530.070', 'Rianirsyah Dian Nugrahanto', 'XII', 'RPL', 'XII RPL 3', 'Laki-Laki', 'Islam', 'Probolinggo', '2000-04-26', 'Jl. Danau Ranau G6B/2', '082257883916', '24');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -188,6 +217,12 @@ ALTER TABLE `tb_karyawan`
 --
 ALTER TABLE `tb_kelas`
   ADD PRIMARY KEY (`kode_kelas`);
+
+--
+-- Indexes for table `tb_pelajaran`
+--
+ALTER TABLE `tb_pelajaran`
+  ADD PRIMARY KEY (`kode_pelajaran`);
 
 --
 -- Indexes for table `tb_siswa`

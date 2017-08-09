@@ -27,72 +27,38 @@ class Siswa_model extends CI_Model {
 			return FALSE;
 	}
 
-	public function get_data_siswaXRPL()
+	public function get_data_siswa()
+	{
+		return $this->db->order_by('kelas','ASC')
+						->order_by('nama_siswa','ASC')
+						->get('tb_siswa')
+						->result();		
+	}
+
+	public function get_data_siswaX()
 	{
 		$x = "X";
-		$rpl = "RPL";
 		return $this->db->where('tingkat = "'.$x.'"')
-						->where('jurusan = "'.$rpl.'"')
 						->order_by('kelas','ASC')
 						->order_by('nama_siswa','ASC')
 						->get('tb_siswa')
 						->result();		
 	}
 
-	public function get_data_siswaXTKJ()
-	{
-		$x = "X";
-		$tkj = "TKJ";
-		return $this->db->where('tingkat = "'.$x.'"')
-						->where('jurusan = "'.$tkj.'"')
-						->order_by('kelas','ASC')
-						->order_by('nama_siswa','ASC')
-						->get('tb_siswa')
-						->result();		
-	}
-
-	public function get_data_siswaXIRPL()
+	public function get_data_siswaXI()
 	{
 		$xi = "XI";
-		$rpl = "RPL";
 		return $this->db->where('tingkat = "'.$xi.'"')
-						->where('jurusan = "'.$rpl.'"')
 						->order_by('kelas','ASC')
 						->order_by('nama_siswa','ASC')
 						->get('tb_siswa')
 						->result();		
 	}
 
-	public function get_data_siswaXITKJ()
-	{
-		$xi = "XI";
-		$tkj = "TKJ";
-		return $this->db->where('tingkat = "'.$xi.'"')
-						->where('jurusan = "'.$tkj.'"')
-						->order_by('kelas','ASC')
-						->order_by('nama_siswa','ASC')
-						->get('tb_siswa')
-						->result();		
-	}
-
-	public function get_data_siswaXIIRPL()
+	public function get_data_siswaXII()
 	{
 		$xii = "XII";
-		$rpl = "RPL";
 		return $this->db->where('tingkat = "'.$xii.'"')
-						->where('jurusan = "'.$rpl.'"')
-						->order_by('kelas','ASC')
-						->order_by('nama_siswa','ASC')
-						->get('tb_siswa')
-						->result();		
-	}
-
-	public function get_data_siswaXIITKJ()
-	{
-		$xii = "XII";
-		$tkj = "TKJ";
-		return $this->db->where('tingkat = "'.$xii.'"')
-						->where('jurusan = "'.$tkj.'"')
 						->order_by('kelas','ASC')
 						->order_by('nama_siswa','ASC')
 						->get('tb_siswa')
