@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2017 at 05:46 AM
+-- Generation Time: Aug 15, 2017 at 08:16 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -94,7 +94,7 @@ INSERT INTO `tb_karyawan` (`kode_karyawan`, `nip`, `nama_karyawan`, `tempat_lahi
 ('C12', '00000', 'Hendro Soemarno, S.T.', 'Malang', '1970-01-01', 'Laki-Laki', 'Jl. Sawojajar', '000000000000', 'Guru', 'PPL (3) / ASP (4)', ''),
 ('C13', '00000', 'Muhammad Arifin, M.Pd.', 'Malang', '1970-01-01', 'Laki-Laki', 'Jl. Sawojajar', '000000000000', 'Guru', 'PBO (3) / PBB (4)', 'Pemrog. Perang. Bergerak'),
 ('C14', '00000', 'Pashatania Fitri Indah L., S.Kom.', 'Malang', '1970-01-01', 'Perempuan', 'Jl. Sawojajar', '000000000000', 'Guru', 'PBO (3) / ASP (4)', 'Pemrograman Grafik'),
-('C15', '00000', 'Firdausa, S.Pd.', 'Malang', '1970-01-01', 'Laki-Laki', 'Jl. Sawojajar', '000000000000', 'Guru', 'BD (3) / MVC (3)', 'Prog. Web Dinamis(Mulok)'),
+('C15', '00000', 'Firdausa, S.Pd.', 'Malang', '1970-01-01', 'Laki-Laki', 'Jl. Sawojajar', '000000000000', 'Guru', 'BD (3) / MVC (3)', 'Prog. Web Dinamis'),
 ('C17', '00000', 'Mokh. Hadi Wijaya, S.Kom.', 'Malang', '1970-01-01', 'Laki-Laki', 'Jl. Sawojajar', '000000000000', 'Guru', 'Administrasi Basis Data', ''),
 ('C18', '00000', 'Roselina Febriati, S.ST.', 'Malang', '1970-01-01', 'Perempuan', 'Jl. Sawojajar', '000000000000', 'Guru', 'Komputer Terapan', 'Sistem Telekomunikasi'),
 ('C19', '00000', 'Candra Kurniawan, S.Pd.', 'Malang', '1970-01-01', 'Laki-Laki', 'Jl. Sawojajar', '000000000000', 'Guru', 'SOJ (3) / ADSER (4)', 'Troubleshooting Jaringan'),
@@ -161,7 +161,7 @@ INSERT INTO `tb_kelas` (`kode_kelas`, `tingkat_kelas`, `nama_kelas`, `penanggung
 CREATE TABLE `tb_pelajaran` (
   `kode_pelajaran` varchar(5) NOT NULL,
   `mata_pelajaran` varchar(50) NOT NULL,
-  `lama_jam` varchar(10) NOT NULL,
+  `lama_jam` varchar(20) NOT NULL,
   `keterangan` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -170,9 +170,46 @@ CREATE TABLE `tb_pelajaran` (
 --
 
 INSERT INTO `tb_pelajaran` (`kode_pelajaran`, `mata_pelajaran`, `lama_jam`, `keterangan`) VALUES
-('1A', 'Pend. Agama Islam', '3', 'Kelompok A Wajib'),
-('2A', 'P K n', '2', 'Kelompok A Wajib'),
-('3A', 'Bahasa Indonesia', '4', 'Kelompok A Wajib');
+('01A', 'Pend. Agama Islam', '2 / 3 Jam', 'Kelompok A Wajib'),
+('01B', 'Seni Budaya', '2 Jam', 'Kelompok B Wajib'),
+('01C', 'Simulasi dan Komunikasi Digital', '3 Jam', 'Kelompok C Peminatan'),
+('01D', 'Bimbingan Konseling', '1 Jam', 'Kelompok D'),
+('02A', 'P K n', '2 Jam', 'Kelompok A Wajib'),
+('02B', 'Prakakrya & Kewirausahaan', '2 Jam', 'Kelompok B Wajib'),
+('02C', 'Fisika', '2 Jam', 'Kelompok C Peminatan'),
+('03A', 'Bahasa Indonesia', '3 / 6 Jam', 'Kelompok A Wajib'),
+('03B', 'Pend. Jasmani & Kesehatan', '2 Jam', 'Kelompok B Wajib'),
+('03C', 'Kimia', '2 Jam', 'Kelompok C Peminatan'),
+('04A', 'Matematika', '3 / 4 / 6 Jam', 'Kelompok A Wajib'),
+('04B', 'Sistem Telekomunikasi', '2 Jam', 'Kelompok B Wajib'),
+('04C', 'Sistem Komputer', '2 Jam', 'Kelompok C Peminatan'),
+('05A', 'Sejarah Indonesia', '2 Jam', 'Kelompok A Wajib'),
+('05C', 'Komputer dan Jaringan Dasar', '4 Jam', 'Kelompok C Peminatan'),
+('06A', 'Bahasa Inggris', '3 / 4 Jam', 'Kelompok A Wajib'),
+('06C', 'Administrasi Server', '2 Jam', 'Kelompok C Peminatan'),
+('07A', 'Bahasa Jawa', '2 Jam', 'Kelompok A Wajib'),
+('07C', 'Pemrograman Grafik', '2 / 3 Jam', 'Kelompok C Peminatan'),
+('08A', 'Pend. Agama Kristen', '6 Jam', 'Kelompok A Wajib'),
+('08C', 'Pemrograman Dasar', '4 Jam', 'Kelompok C Peminatan'),
+('09A', 'Pend. Agama Katolik', '6 Jam', 'Kelompok A Wajib'),
+('09C', 'Dasar Desain Grafis (Pemrograman Web)', '3 Jam', 'Kelompok C Peminatan'),
+('10A', 'Pend. Agama Hindu', '6 Jam', 'Kelompok A Wajib'),
+('10C', 'PPL / PPB', '6 Jam', 'Kelompok C Peminatan'),
+('11C', 'Pemrog. Perang. Bergerak', '3 Jam', 'Kelompok C Peminatan'),
+('12C', 'PPL / ASP', '6 Jam', 'Kelompok C Peminatan'),
+('13C', 'PBO / ASP', '6 Jam', 'Kelompok C Peminatan'),
+('14C', 'BD / MVC', '6 Jam', 'Kelompok C Peminatan'),
+('15C', 'Prog. Web Dinamis', '3 Jam', 'Kelompok C Peminatan'),
+('16C', 'Administrasi Basis Data', '3 Jam', 'Kelompok C Peminatan'),
+('17C', 'Komputer Terapan', '3 Jam', 'Kelompok C Peminatan'),
+('18C', 'SOJ / ADSER', '6 Jam', 'Kelompok C Peminatan'),
+('19C', 'Troubleshooting Jaringan', '3 Jam', 'Kelompok C Peminatan'),
+('20C', 'RBJ / JarNirkabel', '6 Jam', 'Kelompok C Peminatan'),
+('21C', 'Jaringan Nirkabel', '3 Jam', 'Kelompok C Peminatan'),
+('22C', 'Keamanan Jaringan', '2 / 3 Jam', 'Kelompok C Peminatan'),
+('23C', 'Komunikasi Data', '3 Jam', 'Kelompok C Peminatan'),
+('24C', 'Rancang Bangun Jaringan', '3 Jam', 'Kelompok C Peminatan'),
+('25C', 'Kerja Proyek', '6 Jam', 'Kelompok C Peminatan');
 
 -- --------------------------------------------------------
 
@@ -200,6 +237,7 @@ CREATE TABLE `tb_siswa` (
 --
 
 INSERT INTO `tb_siswa` (`nis`, `nama_siswa`, `tingkat`, `jurusan`, `kelas`, `jenis_kelamin`, `agama`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `no_telp`, `angkatan`) VALUES
+('1530/1148.070', 'Qonita Luthfiyani', 'X', 'TKJ', 'X TKJ 3', 'Perempuan', 'Islam', 'Malang', '2001-01-01', 'Jl. Danau Kemuning', '082257883917', '26'),
 ('4811/1530.070', 'Rianirsyah Dian Nugrahanto', 'XII', 'RPL', 'XII RPL 3', 'Laki-Laki', 'Islam', 'Probolinggo', '2000-04-26', 'Jl. Danau Ranau G6B/2', '082257883916', '24');
 
 --

@@ -64,7 +64,9 @@
                                   <td>'.$data->alamat.'</td>
                                   <td>'.$data->no_telp.'</td>
                                   <td>'.$data->angkatan.'</td>
-                                  <td>-</td>
+                                  <td>
+                                    <a href="'.base_url().'index.php/siswa/edit_siswa/'.$data->nis.'" class="btn btn-success"><i class="glyphicon glyphicon-pencil"></i></a>
+                                  </td>
                                 </tr>
                                 ';
                               $no++;

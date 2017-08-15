@@ -64,7 +64,7 @@
                                   <td>
                                     <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#'.$data->kode_karyawan.'">
                                     <i class="glyphicon glyphicon-pencil"></i> </button>
-                                    <a href="'.base_url().'index.php/karyawan/hapus_karyawan/'.$data->kode_karyawan.'" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> </a>  
+                                    <a href="'.base_url().'index.php/karyawan/hapus_karyawan/'.$data->kode_karyawan.'" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> </a>
                                   </td>
                                 </tr>
                                 ';
@@ -150,41 +150,52 @@
                     <textarea id="alamat" name="alamat_karyawan" required="required" class="form-control" rows="5"></textarea>
                   </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="no_telp" class="col-sm-2 control-label">Nomor Telepon <span class="required">*</span></label>
+                <div class="form-group">
+                  <label for="no_telp" class="col-sm-2 control-label">Nomor Telepon <span class="required">*</span></label>
 
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="no_telp" placeholder="Nomor Telepon"
-                  name="no_telp" value="">
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="no_telp" placeholder="Nomor Telepon"
+                    name="no_telp" value="">
+                  </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="status" class="col-sm-2 control-label">Status <span class="required">*</span></label>
+                <div class="form-group">
+                  <label for="status" class="col-sm-2 control-label">Status <span class="required">*</span></label>
 
-                <div class="col-sm-10">
-                <select name="status" class="form-control">
-                  <option value="">[Pilih Status]</option>
-                  <option value="Guru">Guru</option>
-                  <option value="Tata Usaha">Karyawan TU</option>
-                  <option value="Kesiswaan">Kesiswaan</option>
-                </select>
+                  <div class="col-sm-10">
+                  <select name="status" class="form-control">
+                    <option value="">[Pilih Status]</option>
+                    <option value="Guru">Guru</option>
+                    <option value="Tata Usaha">Karyawan TU</option>
+                    <option value="Kesiswaan">Kesiswaan</option>
+                  </select>
+                  </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="mapel1" class="col-sm-2 control-label">Mata Pelajaran 1 </label>
+                <div class="form-group">
+                  <label for="mapel1" class="col-sm-2 control-label">Mata Pelajaran 1 </label>
 
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="mapel1" placeholder="Mata Pelajaran 1"
-                  name="mapel1" value="">
+                  <div class="col-sm-10">
+                    <select name="mapel1" class="form-control">
+                      <option value="">[Pilih Mata Pelajaran]</option>
+                          <?php 
+                              $pelajaran = $this->db->query("SELECT mata_pelajaran FROM tb_pelajaran")
+                                                    ->result();
+
+                              if (!empty($pelajaran)) {
+                                foreach ($pelajaran as $data) {
+                                  echo "<option value='".$data->mata_pelajaran."' >".$data->mata_pelajaran."</option>";
+                                  }
+                              }
+                          ?>
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="mapel2" class="col-sm-2 control-label">Mata Pelajaran 2 </label>
+                <div class="form-group">
+                  <label for="mapel2" class="col-sm-2 control-label">Mata Pelajaran 2 </label>
 
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="mapel2" placeholder="Mata Pelajaran 2"
-                  name="mapel2" value="">
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="mapel2" placeholder="Mata Pelajaran 2"
+                    name="mapel2" value="">
+                  </div>
                 </div>
               </div>
               <!-- /.box-body -->
@@ -273,41 +284,51 @@
                     <textarea id="alamat" name="alamat_karyawan" required="required" class="form-control" rows="5">'.$data->alamat_karyawan.'</textarea>
                   </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="no_telp" class="col-sm-2 control-label">Nomor Telepon <span class="required">*</span></label>
+                <div class="form-group">
+                  <label for="no_telp" class="col-sm-2 control-label">Nomor Telepon <span class="required">*</span></label>
 
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="no_telp" placeholder="Nomor Telepon"
-                  name="no_telp" value="'.$data->no_telp.'">
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="no_telp" placeholder="Nomor Telepon"
+                    name="no_telp" value="'.$data->no_telp.'">
+                  </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="status" class="col-sm-2 control-label">Status <span class="required">*</span></label>
+                <div class="form-group">
+                  <label for="status" class="col-sm-2 control-label">Status <span class="required">*</span></label>
 
-                <div class="col-sm-10">
-                <select name="status" class="form-control">
-                  <option value="">[Pilih Status]</option>
-                  <option value="Guru">Guru</option>
-                  <option value="Tata Usaha">Karyawan TU</option>
-                  <option value="Kesiswaan">Kesiswaan</option>
-                </select>
+                  <div class="col-sm-10">
+                  <select name="status" class="form-control">
+                    <option value="">[Pilih Status]</option>
+                    <option value="Guru">Guru</option>
+                    <option value="Tata Usaha">Karyawan TU</option>
+                    <option value="Kesiswaan">Kesiswaan</option>
+                  </select>
+                  </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="mapel1" class="col-sm-2 control-label">Mata Pelajaran 1 </label>
+                <div class="form-group">
+                  <label for="mapel1" class="col-sm-2 control-label">Mata Pelajaran 1 </label>
 
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="mapel1" placeholder="Mata Pelajaran 1"
-                  name="mapel1" value="'.$data->mapel1.'">
+                  <div class="col-sm-10">
+                    <select name="mapel1" class="form-control">
+                      <option value="">[Pilih Mata Pelajaran]</option>';
+                              $pelajaran = $this->db->query("SELECT mata_pelajaran FROM tb_pelajaran")
+                                                    ->result();
+
+                              if (!empty($pelajaran)) {
+                                foreach ($pelajaran as $data) {
+                                  echo "<option value='".$data->mata_pelajaran."' >".$data->mata_pelajaran."</option>";
+                                  }
+                              }
+                          echo '
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="mapel2" class="col-sm-2 control-label">Mata Pelajaran 2 </label>
+                <div class="form-group">
+                  <label for="mapel2" class="col-sm-2 control-label">Mata Pelajaran 2 </label>
 
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="mapel2" placeholder="Mata Pelajaran 2"
-                  name="mapel2" value="'.$data->mapel2.'">
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="mapel2" placeholder="Mata Pelajaran 2"
+                    name="mapel2" value="'.$data->mapel2.'">
+                  </div>
                 </div>
               </div>
               <!-- /.box-body -->

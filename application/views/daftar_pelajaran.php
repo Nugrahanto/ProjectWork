@@ -1,5 +1,4 @@
-      
-
+    
       <?php
         if (!empty($notif_sukses)) {
           echo '<div class="alert alert-success">'.$notif_sukses.'</div>';
@@ -17,7 +16,7 @@
             <div class="box-header">
               <div class="row">
               <div class="col-xs-10">
-                <h3 class="box-title">Daftar Pelajaran</h3>
+                <h1 class="box-title">Daftar Karyawan</h1>
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a href="<?php echo base_url();?>index.php/pelajaran/"><i class="glyphicon glyphicon-refresh"></i></a></li>
                 </ul>
@@ -33,7 +32,7 @@
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                        <tr>
+                       <tr>
                           <th>No.</th>
                           <th>Kode Pelajaran</th>
                           <th>Mata Pelajaran</th>
@@ -56,6 +55,7 @@
                                   <td>
                                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#'.$data->kode_pelajaran.'">
                                     <i class="glyphicon glyphicon-pencil"></i> </button>
+                                    <a data href="'.base_url().'index.php/pelajaran/hapus_pelajaran/'.$data->kode_pelajaran.'" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> </a>
                                   </td>
                                 </tr>
                                 ';
@@ -63,19 +63,18 @@
                             }
                           ?>
                       </tbody>
-              </table>
+                </table>
+              </div>
+              <!-- /.box-body -->
             </div>
-            <!-- /.box-body -->
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal fade" id="myModal" role="dialog">
       <div class="modal-dialog modal-lg">
         
-      <!-- Modal content-->
-      <div class="modal-content">
+       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Tambah Data Pelajaran</h4>
@@ -83,18 +82,6 @@
         <div class="modal-body">
           <form class="form-horizontal" method="post" id="form-pendaftaran" enctype="multipart/form-data" action="simpan_pelajaran"> 
               <div class="box-body">
-                <div class="form-group">
-                  <label for="tingkat" class="col-sm-2 control-label">Tingkat <span class="required">*</span></label>
-
-                  <div class="col-sm-10">
-                    <select name="tingkat" class="form-control">
-                      <option value="">[Pilih Tingkat]</option>
-                      <option value="X">X</option>
-                      <option value="XI">XI</option>
-                      <option value="XII">XII</option>
-                  </select>
-                  </div>
-                </div>
                 <div class="form-group">
                   <label for="kode_pelajaran" class="col-sm-2 control-label">Kode Pelajaran <span class="required">*</span></label>
 
@@ -128,17 +115,19 @@
                       <option value="Kelompok A Wajib">Kelompok A Wajib</option>
                       <option value="Kelompok B Wajib">Kelompok B Wajib</option>
                       <option value="Kelompok C Peminatan">Kelompok C Peminatan</option>
+                      <option value="Kelompok D">Kelompok D </option>
                   </select>
                   </div>
                 </div>
+              </div>
               <!-- /.box-body -->
               <div class="box-footer">
                 <input type="submit" name="submit" class="btn btn-info pull-right" value="Tambah"> 
               </div>
               <!-- /.box-footer -->
             </form>
-          </div>
-        </div>  
+        </div>
+      </div>  
           
         </div>
       </div>
@@ -150,7 +139,7 @@
     <div class="modal fade" id="'.$data->kode_pelajaran.'" role="dialog">
     <div class="modal-dialog modal-lg">
     
-       <!-- Modal content-->
+      <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -159,18 +148,6 @@
         <div class="modal-body">
           <form class="form-horizontal" method="post" id="form-pendaftaran" enctype="multipart/form-data" action="edit_pelajaran"> 
               <div class="box-body">
-                <div class="form-group">
-                  <label for="tingkat" class="col-sm-2 control-label">Tingkat <span class="required">*</span></label>
-
-                  <div class="col-sm-10">
-                    <select name="tingkat" class="form-control">
-                      <option value="">[Pilih Tingkat]</option>
-                      <option value="X">X</option>
-                      <option value="XI">XI</option>
-                      <option value="XII">XII</option>
-                  </select>
-                  </div>
-                </div>
                 <div class="form-group">
                   <label for="kode_pelajaran" class="col-sm-2 control-label">Kode Pelajaran <span class="required">*</span></label>
 
@@ -204,17 +181,54 @@
                       <option value="Kelompok A Wajib">Kelompok A Wajib</option>
                       <option value="Kelompok B Wajib">Kelompok B Wajib</option>
                       <option value="Kelompok C Peminatan">Kelompok C Peminatan</option>
+                      <option value="Kelompok D">Kelompok D </option>
                   </select>
                   </div>
                 </div>
+              </div>
               <!-- /.box-body -->
               <div class="box-footer">
                 <input type="submit" name="submit" class="btn btn-info pull-right" value="Update"> 
               </div>
               <!-- /.box-footer -->
             </form>
-          </div>
-        </div>  
+        </div>
+      </div>  
+   
+    </div>
+    </div>
+
+
+
+    ';}
+  ?>
+
+        <?php
+        foreach ($pelajaran as $data) {
+          echo '
+
+    <div class="modal fade" id="'.$data->kode_pelajaran.'delete" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Hapus Data Pelajaran</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" method="post" id="form-pendaftaran" enctype="multipart/form-data" action="hapus_pelajaran"> 
+              <div class="box-body">
+                <p>Anda yakin akan menghapus pelajaran '.$data->mata_pelajaran.' ?</p>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <input type="submit" name="submit" class="btn btn-info pull-right" value="Hapus"> 
+              </div>
+              <!-- /.box-footer -->
+            </form>
+        </div>
+      </div>  
    
     </div>
     </div>

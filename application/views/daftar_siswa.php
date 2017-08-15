@@ -17,7 +17,7 @@
               <div class="row">
               <div class="col-xs-10">
                 <h1 class="box-title">Daftar Siswa</h1>
-                <ul class="nav navbar-right panel_toolbox">
+                <ul class="nav navbar-right panel_toolbox right">
                   <li><a href="<?php echo base_url();?>index.php/siswa/"><i class="glyphicon glyphicon-refresh"></i></a></li>
                 </ul>
               </div>
@@ -38,7 +38,6 @@
                           <th>Alamat</th>
                           <th>No Telp</th>
                           <th>Angkatan</th>
-                          <th>Keterangan</th>
                         </tr>
                       </thead>
 
@@ -58,7 +57,6 @@
                                   <td>'.$data->alamat.'</td>
                                   <td>'.$data->no_telp.'</td>
                                   <td>'.$data->angkatan.'</td>
-                                  <td>-</td>
                                 </tr>
                                 ';
                               $no++;

@@ -138,7 +138,7 @@
             <li><a href="<?php echo base_url(); ?>index.php/siswa/kelas_12"><i class="fa fa-circle-o"></i> Kelas XII</a></li>
           </ul>
         </li>
-        <li><a href="#"><i class="fa fa-windows"></i> <span>Nilai</span></a></li>
+        <li><a href="<?php echo base_url(); ?>index.php/nilai/"><i class="fa fa-windows"></i> <span>Nilai</span></a></li>
         <li><a href="#"><i class="fa fa-linux"></i> <span>Keuangan</span></a></li>
         <li><a href="#"><i class="fa fa-pencil"></i> <span>Catatan Siswa</span></a></li>
         <li class="header">ADMIN NAVIGATION</li>
