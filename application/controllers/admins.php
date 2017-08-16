@@ -1,23 +1,23 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class Admins extends CI_Controller {
 
 	public $data = '';
 
 	public function __construct()
 	{
 		parent:: __construct();
-		$this->load->model('user_model');
+		$this->load->model('admin_model');
 	}
 
 	public function index()
 	{
-		if($this->session->userdata('siswa_logged_in') == TRUE)
+		if($this->session->userdata('logged_in') == TRUE)
 		{
-			redirect(base_url('index.php/profil/'));
+			redirect(base_url('index.php/home/'));
 		} else {
-			$this->load->view('login_siswa');
+			$this->load->view('login_admin');
 		}
 	}
 
@@ -28,30 +28,30 @@ class Login extends CI_Controller {
 			$this->form_validation->set_rules('password', 'Password', 'trim|required');
 
 			if($this->form_validation->run() == TRUE){
-				if ($this->user_model->cek() == TRUE){
-					redirect(base_url('index.php/profil/'));
+				if ($this->admin_model->cek() == TRUE){
+					redirect(base_url('index.php/home/'));
 
 				} else {
 					$data['notif'] = 'Username atau Password Salah!';
-					$this->load->view('login_siswa', $data);
+					$this->load->view('login_admin', $data);
 				}
 			} else {
 				$data['notif'] = validation_errors();
-				$this->load->view('login_siswa', $data);
+				$this->load->view('login_admin', $data);
 			}
 
 		} else {
 			$data['notif'] = 'ERROR!';
-			$this->load->view('login_siswa', $data);
+			$this->load->view('login_admin', $data);
 		}
 	}
 
 	public function keluar(){
 		$this->session->sess_destroy();
-		redirect(base_url('index.php'));
+		redirect('admins');
 	}
 
 }
 
-/* End of file login.php */
-/* Location: ./application/controllers/login.php */
+/* End of file admin.php */
+/* Location: ./application/controllers/admin.php */

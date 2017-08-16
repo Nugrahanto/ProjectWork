@@ -27,7 +27,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href=""><b>Admin</b>LTE</a>
+    <a href=""><b>Siswa</b>LTE</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -39,17 +39,20 @@
           echo '</div>';
         }
       ?>
-    <form action="<?php echo base_url(); ?>index.php/admin/masuk" method="post">
+    <form action="<?php echo base_url(); ?>index.php/login/masuk" method="post">
       <div class="form-group has-feedback">
-        <input name="username"type="text" class="form-control" placeholder="Username">
+        <input name="username"type="text" class="form-control" placeholder="NIS">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input name="password" type="password" class="form-control" placeholder="Password">
+        <input name="password" type="password" class="form-control" placeholder="No Telp Siswa">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
-        <div class="col-xs-8">
+        <div class="col-xs-4">
+          <a href="" class="btn btn-success btn-block btn-flat">Register</a>
+        </div>
+        <div class="col-xs-4">
           
         </div>
         <!-- /.col -->

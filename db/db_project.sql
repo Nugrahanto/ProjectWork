@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 15, 2017 at 08:16 AM
+-- Generation Time: Aug 16, 2017 at 05:06 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -106,7 +106,8 @@ INSERT INTO `tb_karyawan` (`kode_karyawan`, `nip`, `nama_karyawan`, `tempat_lahi
 ('C25', '00000', 'Antonius Duty Susilo, M.T.', 'Malang', '1974-01-01', 'Laki-Laki', 'Jl. Sawojajar', '000000000000', 'Guru', 'RBJ (3) / JarNirkabel (4)', 'Rancang Bangun Jaringan'),
 ('PD1', '00000', 'Dra. Peni Wardayani', 'Malang', '1974-01-01', 'Perempuan', 'Jl. Sawojajar', '000000000000', 'Kesiswaan', 'Bimbingan Konseling', ''),
 ('PD2', '00000', 'Emil Bakhtiar Zulkarnain, S.Psi.', 'Malang', '1970-01-01', 'Laki-Laki', 'Jl. Sawojajar', '000000000000', 'Kesiswaan', 'Bimbingan Konseling', ''),
-('PD3', '00000', 'Nurwidiasih Firstyana W., S.Psi', 'Malang', '1974-01-01', 'Perempuan', 'Jl. Sawojajar', '000000000000', 'Kesiswaan', 'Bimbingan Konseling', '');
+('PD3', '00000', 'Nurwidiasih Firstyana W., S.Psi', 'Malang', '1974-01-01', 'Perempuan', 'Jl. Sawojajar', '000000000000', 'Kesiswaan', 'Bimbingan Konseling', ''),
+('Z11', '0004334478', 'Drs. Rianirsyah Dian Nugrahanto', 'Probolinggo', '2000-04-26', 'Laki-Laki', 'Jl. Danau Ranau', '082257883916', 'Guru', 'Kimia', '');
 
 -- --------------------------------------------------------
 
@@ -229,16 +230,17 @@ CREATE TABLE `tb_siswa` (
   `tanggal_lahir` date NOT NULL,
   `alamat` varchar(255) NOT NULL,
   `no_telp` varchar(12) NOT NULL,
-  `angkatan` varchar(5) NOT NULL
+  `angkatan` varchar(5) NOT NULL,
+  `foto` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_siswa`
 --
 
-INSERT INTO `tb_siswa` (`nis`, `nama_siswa`, `tingkat`, `jurusan`, `kelas`, `jenis_kelamin`, `agama`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `no_telp`, `angkatan`) VALUES
-('1530/1148.070', 'Qonita Luthfiyani', 'X', 'TKJ', 'X TKJ 3', 'Perempuan', 'Islam', 'Malang', '2001-01-01', 'Jl. Danau Kemuning', '082257883917', '26'),
-('4811/1530.070', 'Rianirsyah Dian Nugrahanto', 'XII', 'RPL', 'XII RPL 3', 'Laki-Laki', 'Islam', 'Probolinggo', '2000-04-26', 'Jl. Danau Ranau G6B/2', '082257883916', '24');
+INSERT INTO `tb_siswa` (`nis`, `nama_siswa`, `tingkat`, `jurusan`, `kelas`, `jenis_kelamin`, `agama`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `no_telp`, `angkatan`, `foto`) VALUES
+('1530/1148.070', 'Qonita Luthfiyani', 'X', 'TKJ', 'X TKJ 3', 'Perempuan', 'Islam', 'Malang', '2001-01-01', 'Jl. Danau Kemuning', '082257883918', '26', '29. Qonita L..JPG'),
+('4811/1530.070', 'Rianirsyah Dian Nugrahanto', 'XII', 'RPL', 'XII RPL 3', 'Laki-Laki', 'Islam', 'Probolinggo', '2000-04-26', 'Jl. Danau Ranau G6B/2', '082257883916', '24', '28__Rianirsyah_Dian.JPG');
 
 --
 -- Indexes for dumped tables

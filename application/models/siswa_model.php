@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Siswa_model extends CI_Model {
 
-	public function insert_siswa()
+	public function insert_siswa($foto)
 	{
 		$data = array(
 			'nis'			=> $this->input->post('nis'),
@@ -17,7 +17,8 @@ class Siswa_model extends CI_Model {
 			'tanggal_lahir'	=> $this->input->post('tanggal_lahir'),
 			'alamat'		=> $this->input->post('alamat'),
 			'no_telp'		=> $this->input->post('no_telp'),
-			'angkatan'		=> $this->input->post('angkatan')
+			'angkatan'		=> $this->input->post('angkatan'),
+			'foto'			=> $foto['file_name']
 		);
 		$this->db->insert('tb_siswa', $data);
 

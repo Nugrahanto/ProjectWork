@@ -12,8 +12,14 @@ class Home extends CI_Controller {
 
 	public function index()
 	{	
-		$data['main_view'] = 'index';
-		$this->load->view('template', $data);
+		if($this->session->userdata('logged_in') == TRUE)
+		{
+			$data['main_view'] = 'index';
+			$this->load->view('template', $data);
+		} 
+		else{
+			redirect(base_url('index.php/admins'));
+		}
 	}
 
 }

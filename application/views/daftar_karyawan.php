@@ -90,7 +90,7 @@
           <h4 class="modal-title">Tambah Data Karyawan</h4>
         </div>
         <div class="modal-body">
-          <form class="form-horizontal" method="post" id="form-pendaftaran" enctype="multipart/form-data" action="simpan_karyawan"> 
+          <form class="form-horizontal" method="post" id="form-pendaftaran" enctype="multipart/form-data" action="karyawan/simpan_karyawan"> 
               <div class="box-body">
                 <div class="form-group">
                   <label for="kode_karyawan" class="col-sm-2 control-label">Kode Karyawan</label>

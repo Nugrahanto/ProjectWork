@@ -63,7 +63,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<?php echo base_url();?>assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?php echo $this->session->userdata('type'); ?></span>
+              <span class="hidden-xs"><?php echo $this->session->userdata('nama'); ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -71,7 +71,8 @@
                 <img src="<?php echo base_url();?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  <?php echo $this->session->userdata('type'); ?> - Web Developer
+                  <?php echo $this->session->userdata('nama'); ?> <br> <?php echo $this->session->userdata('status'); ?>
+                <br><?php echo $this->session->userdata('nip'); ?>
                 </p>
               </li>
               
@@ -80,7 +81,7 @@
                 <div class="pull-left">
                 </div>
                 <div class="pull-right">
-                  <a href="<?php echo base_url()?>index.php/admin/keluar" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<?php echo base_url()?>index.php/admins/keluar" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
