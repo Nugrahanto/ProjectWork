@@ -60,7 +60,8 @@
                                   <td>'.$data->jenis_kelamin.'</td>
                                   <td>'.$data->alamat_karyawan.'</td>
                                   <td>'.$data->no_telp.'</td>
-                                  <td>'.$data->status.' '.$data->mapel1.', '.$data->mapel2.' </td>
+                                  <td>'.$data->status.' 
+                                  '.$data->mapel1.', '.$data->mapel2.' </td>
                                   <td>
                                     <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#'.$data->kode_karyawan.'">
                                     <i class="glyphicon glyphicon-pencil"></i> </button>
@@ -90,7 +91,7 @@
           <h4 class="modal-title">Tambah Data Karyawan</h4>
         </div>
         <div class="modal-body">
-          <form class="form-horizontal" method="post" id="form-pendaftaran" enctype="multipart/form-data" action="karyawan/simpan_karyawan"> 
+          <form class="form-horizontal" method="post" id="form-pendaftaran" enctype="multipart/form-data" action="simpan_karyawan"> 
               <div class="box-body">
                 <div class="form-group">
                   <label for="kode_karyawan" class="col-sm-2 control-label">Kode Karyawan</label>
@@ -164,8 +165,9 @@
                   <div class="col-sm-10">
                   <select name="status" class="form-control">
                     <option value="">[Pilih Status]</option>
+                    <option value="Manajemen">Manajemen</option>
                     <option value="Guru">Guru</option>
-                    <option value="Tata Usaha">Karyawan TU</option>
+                    <option value="Tata Usaha">Tata Usaha</option>
                     <option value="Kesiswaan">Kesiswaan</option>
                   </select>
                   </div>
@@ -193,8 +195,19 @@
                   <label for="mapel2" class="col-sm-2 control-label">Mata Pelajaran 2 </label>
 
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="mapel2" placeholder="Mata Pelajaran 2"
-                    name="mapel2" value="">
+                    <select name="mapel2" class="form-control">
+                        <option value="">[Pilih Mata Pelajaran]</option>
+                            <?php 
+                                $pelajaran = $this->db->query("SELECT mata_pelajaran FROM tb_pelajaran")
+                                                      ->result();
+
+                                if (!empty($pelajaran)) {
+                                  foreach ($pelajaran as $data) {
+                                    echo "<option value='".$data->mata_pelajaran."' >".$data->mata_pelajaran."</option>";
+                                    }
+                                }
+                            ?>
+                      </select>
                   </div>
                 </div>
               </div>
@@ -298,8 +311,9 @@
                   <div class="col-sm-10">
                   <select name="status" class="form-control">
                     <option value="">[Pilih Status]</option>
+                    <option value="Manajemen">Manajemen</option>
                     <option value="Guru">Guru</option>
-                    <option value="Tata Usaha">Karyawan TU</option>
+                    <option value="Tata Usaha">Tata Usaha</option>
                     <option value="Kesiswaan">Kesiswaan</option>
                   </select>
                   </div>
@@ -323,11 +337,21 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="mapel2" class="col-sm-2 control-label">Mata Pelajaran 2 </label>
+                 <label for="mapel2" class="col-sm-2 control-label">Mata Pelajaran 2 </label>
 
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="mapel2" placeholder="Mata Pelajaran 2"
-                    name="mapel2" value="'.$data->mapel2.'">
+                    <select name="mapel2" class="form-control">
+                      <option value="">[Pilih Mata Pelajaran]</option>';
+                              $pelajaran = $this->db->query("SELECT mata_pelajaran FROM tb_pelajaran")
+                                                    ->result();
+
+                              if (!empty($pelajaran)) {
+                                foreach ($pelajaran as $data) {
+                                  echo "<option value='".$data->mata_pelajaran."' >".$data->mata_pelajaran."</option>";
+                                  }
+                              }
+                          echo '
+                    </select>
                   </div>
                 </div>
               </div>

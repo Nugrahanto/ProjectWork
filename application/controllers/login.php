@@ -32,7 +32,7 @@ class Login extends CI_Controller {
 					redirect(base_url('index.php/profil/'));
 
 				} else {
-					$data['notif'] = 'Username atau Password Salah!';
+					$data['notif'] = 'Nis atau No. Telp Salah!';
 					$this->load->view('login_siswa', $data);
 				}
 			} else {

@@ -17,7 +17,7 @@
             <div class="box-header">
               <div class="row">
               <div class="col-xs-10">
-                <h3 class="box-title">Data Siswa</h3>
+                <h3 class="box-title">Data Kelas</h3>
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a href="<?php echo base_url();?>index.php/kelas/"><i class="glyphicon glyphicon-refresh"></i></a></li>
                 </ul>

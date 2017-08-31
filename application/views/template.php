@@ -9,9 +9,9 @@
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/Ionicons/css/ionicons.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/datatables/dataTables.bootstrap.css">
   <!-- daterange picker -->
@@ -39,7 +39,7 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body onload="viewData()" class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
@@ -104,7 +104,7 @@
           <img src="<?php echo base_url();?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p><?php echo $this->session->userdata('type'); ?></p>
+          <p></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -385,8 +385,25 @@
 <!-- DataTables -->
 <script src="<?php echo base_url();?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url();?>assets/plugins/select2/dist/js/select2.full.min.js"></script>
+<!-- InputMask -->
+<script src="<?php echo base_url();?>assets/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="<?php echo base_url();?>assets/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="<?php echo base_url();?>assets/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<!-- date-range-picker -->
+<script src="<?php echo base_url();?>assets/plugins/moment/min/moment.min.js"></script>
+<script src="<?php echo base_url();?>assets/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="<?php echo base_url();?>assets/plugins/datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!-- bootstrap color picker -->
+<script src="<?php echo base_url();?>assets/plugins/colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+<!-- bootstrap time picker -->
+<script src="<?php echo base_url();?>assets/plugins/timepicker/bootstrap-timepicker.min.js"></script>
 <!-- SlimScroll -->
 <script src="<?php echo base_url();?>assets/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="<?php echo base_url();?>assets/plugins/iCheck/icheck.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url();?>assets/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -394,7 +411,8 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url();?>assets/dist/js/demo.js"></script>
 <!-- page script -->
-<script>
+<script src="<?php echo base_url();?>assets/bootstrap/js/jquery.tableedit.js"></script>
+<script type="text/javascript">
   $(function () {
     $("#example1").DataTable();
     $('#example2').DataTable({
@@ -407,5 +425,42 @@
     });
   });
 </script>
+<!-- <script type="text/javascript">
+  function viewData(){
+    $.ajax({
+      url: '<?php echo base_url();?>views/process.php?p=view',
+      method: 'GET',
+    }).done(function(data){
+      $('tbody').html(data)
+      tableData()
+    })
+  }
+  function tableData(){
+    $('#tabledit').Tabledit({
+        url: 'process.php',
+        eventType: 'dblclick',
+        editButton: false,
+        deleteButton: false,
+        columns: {
+            identifier: [0, 'id_nilai'],
+            editable: [[1, 'nis'], [2, 'nama_siswa'], [3, 'kelas'], [4, 'mata_pelajaran'], [5, 'uh1'], [6, 'uh2'], [7, 'uh3'], [8, 'uh4'], [9, 'uh5'], [10, 'uts1'], [11, 'uts2'], [12, 'uas1'], [13, 'uas2']]
+        },
+        onSuccess: function(data, textStatus, jqXHR) {
+            viewData()
+        },
+        onFail: function(jqXHR, textStatus, errorThrown) {
+            console.log('onFail(jqXHR, textStatus, errorThrown)');
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        },
+        onAjax: function(action, serialize) {
+            console.log('onAjax(action, serialize)');
+            console.log(action);
+            console.log(serialize);
+        }
+    });
+  }
+</script> -->
 </body>
 </html>

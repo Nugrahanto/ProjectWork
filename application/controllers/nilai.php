@@ -8,6 +8,7 @@ class Nilai extends CI_Controller {
 	public function __construct()
 	{
 		parent:: __construct();
+		$this->load->model('nilai_model');
 	}
 
 	public function index()
@@ -15,6 +16,7 @@ class Nilai extends CI_Controller {
 		if($this->session->userdata('logged_in') == TRUE)
 		{
 			$data['main_view'] = 'daftar_nilai';
+			$data['nilai'] = $this->nilai_model->get_data_nilai();
 			$this->load->view('template', $data);
 		} 
 		else{

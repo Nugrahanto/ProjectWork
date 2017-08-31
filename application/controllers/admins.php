@@ -32,7 +32,7 @@ class Admins extends CI_Controller {
 					redirect(base_url('index.php/home/'));
 
 				} else {
-					$data['notif'] = 'Username atau Password Salah!';
+					$data['notif'] = 'NIP atau No. Telp Salah!';
 					$this->load->view('login_admin', $data);
 				}
 			} else {
