@@ -149,6 +149,12 @@ class Karyawan extends CI_Controller {
 		}
 	}
 
+	public function delete(){
+		$kode_karyawan = $this->input->post("kode_karyawan");
+		$this->karyawan_model->delete($kode_karyawan);
+		echo "{}";
+	}
+
 }
 
 /* End of file karyawan.php */

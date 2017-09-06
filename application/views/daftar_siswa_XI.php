@@ -14,7 +14,7 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
+            <div class="box-header box-head">
               <div class="row">
               <div class="col-xs-10">
                 <h3 class="box-title">Data Siswa Kelas XI</h3>
@@ -26,6 +26,7 @@
                 <button type="button" class="btn btn-block btn-primary"  data-toggle="modal" data-target="#myModal">
                 <i class="glyphicon glyphicon-plus"></i>  Tambah Siswa
                 </button>
+              </div>
               </div>
             </div>
             <hr>

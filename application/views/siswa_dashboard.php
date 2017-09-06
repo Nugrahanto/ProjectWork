@@ -8,6 +8,11 @@
             echo '<div class="alert alert-danger">'.$notif_gagal.'</div>';
         }
       ?>
+      <?php
+        if (!empty($notif_sukses_edit)) {
+          echo '<div class="alert alert-success">'.$notif_sukses_edit.'</div>';
+        }
+      ?>
 
 			<!-- resumt -->
 	        <div class="panel panel-default">

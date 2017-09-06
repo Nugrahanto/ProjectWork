@@ -7,30 +7,33 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/plugins/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/plugins/Ionicons/css/ionicons.min.css">
   <!-- DataTables -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/datatables/dataTables.bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/plugins/datatables/dataTables.bootstrap.css">
   <!-- daterange picker -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/plugins/daterangepicker/daterangepicker.css">
   <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/datepicker/datepicker3.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/plugins/datepicker/datepicker3.css">
   <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/iCheck/all.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/plugins/iCheck/all.css">
   <!-- Bootstrap Color Picker -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/colorpicker/bootstrap-colorpicker.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/plugins/colorpicker/bootstrap-colorpicker.min.css">
   <!-- Bootstrap time Picker -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/timepicker/bootstrap-timepicker.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/plugins/timepicker/bootstrap-timepicker.min.css">
   <!-- Select2 -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/select2/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/plugins/select2/select2.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/dist/css/AdminLTE.min.css">
+  <!-- notif alert delete -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/plugins/sweetalert/sweetalert.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/dist/css/skins/_all-skins.min.css">
+
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,7 +42,7 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body onload="viewData()" class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
@@ -152,17 +155,18 @@
   <!-- Content Wrapper. Contains page content -->
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        ChartJS
-        <small>Preview sample</small>
+        SMK TELKOM MALANG
+        <small>ATTITUDE IS EVERYTHING</small>
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <!-- <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> YPT</a></li>
         <li><a href="#">Charts</a></li>
         <li class="active">ChartJS</li>
-      </ol>
+      </ol> -->
     </section>
 
     <!-- Main content -->
@@ -380,6 +384,7 @@
 
 <!-- jQuery 2.2.3 -->
 <script src="<?php echo base_url();?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="<?php echo base_url();?>assets/plugins/jQuery/jquery.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="<?php echo base_url();?>assets/bootstrap/js/bootstrap.min.js"></script>
 <!-- DataTables -->
@@ -412,6 +417,8 @@
 <script src="<?php echo base_url();?>assets/dist/js/demo.js"></script>
 <!-- page script -->
 <script src="<?php echo base_url();?>assets/bootstrap/js/jquery.tableedit.js"></script>
+<!-- notif alert delete -->
+<script src="<?php echo base_url();?>assets/plugins/sweetalert/sweetalert.min.js"></script>
 <script type="text/javascript">
   $(function () {
     $("#example1").DataTable();
@@ -425,42 +432,108 @@
     });
   });
 </script>
-<!-- <script type="text/javascript">
-  function viewData(){
-    $.ajax({
-      url: '<?php echo base_url();?>views/process.php?p=view',
-      method: 'GET',
-    }).done(function(data){
-      $('tbody').html(data)
-      tableData()
+<script type="text/javascript">
+  $(function(){
+
+    $.ajaxSetup({
+      type:"post",
+      cache:false,
+      dataType: "json"
     })
-  }
-  function tableData(){
-    $('#tabledit').Tabledit({
-        url: 'process.php',
-        eventType: 'dblclick',
-        editButton: false,
-        deleteButton: false,
-        columns: {
-            identifier: [0, 'id_nilai'],
-            editable: [[1, 'nis'], [2, 'nama_siswa'], [3, 'kelas'], [4, 'mata_pelajaran'], [5, 'uh1'], [6, 'uh2'], [7, 'uh3'], [8, 'uh4'], [9, 'uh5'], [10, 'uts1'], [11, 'uts2'], [12, 'uas1'], [13, 'uas2']]
-        },
-        onSuccess: function(data, textStatus, jqXHR) {
-            viewData()
-        },
-        onFail: function(jqXHR, textStatus, errorThrown) {
-            console.log('onFail(jqXHR, textStatus, errorThrown)');
-            console.log(jqXHR);
-            console.log(textStatus);
-            console.log(errorThrown);
-        },
-        onAjax: function(action, serialize) {
-            console.log('onAjax(action, serialize)');
-            console.log(action);
-            console.log(serialize);
-        }
+
+
+    $(document).on("click","td",function(){
+      $(this).find("span[class~='caption']").hide();
+      $(this).find("input[class~='editor']").fadeIn().focus();
     });
-  }
-</script> -->
+
+    $(document).on("keydown",".editor",function(e){
+      if(e.keyCode==13){
+        var target=$(e.target);
+        var value=target.val();
+        var id=target.attr("data-id");
+        var data={id:id,value:value};
+        if(target.is(".field-uh1")){
+          data.modul="uh1";
+        }else if(target.is(".field-uh2")){
+          data.modul="uh2";
+        }else if(target.is(".field-uh3")){
+          data.modul="uh3";
+        }else if(target.is(".field-uh4")){
+          data.modul="uh4";
+        }else if(target.is(".field-uh5")){
+          data.modul="uh5";
+        }else if(target.is(".field-uts1")){
+          data.modul="uts1";
+        }else if(target.is(".field-uts2")){
+          data.modul="uts2";
+        }else if(target.is(".field-uas1")){
+          data.modul="uas1";
+        }else if(target.is(".field-uas2")){
+          data.modul="uas2";
+        }
+
+        $.ajax({
+          data:data,
+          url:"<?php echo base_url('index.php/nilai/edit_nilai'); ?>",
+          success: function(a){
+           target.hide();
+           target.siblings("span[class~='caption']").html(value).fadeIn();
+          }
+        })
+        
+      }
+    });
+
+    $(document).on("click",".hapus-karyawan",function(){
+      var kode_karyawan=$(this).attr("data-id");
+      swal({
+        title:"Hapus Karyawan",
+        text:"Yakin akan menghapus karyawan ini?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Hapus",
+        closeOnConfirm: true,
+      },
+        function(){
+         $.ajax({
+          url:"<?php echo base_url('index.php/karyawan/delete'); ?>",
+          data:{kode_karyawan:kode_karyawan},
+          success: function(){
+            $("tr[data-id='"+kode_karyawan+"']").fadeOut("fast",function(){
+              $(this).remove();
+            });
+          }
+         });
+      });
+    });
+
+    $(document).on("click",".hapus-pelajaran",function(){
+      var kode_pelajaran=$(this).attr("data-id");
+      swal({
+        title:"Hapus Pelajaran",
+        text:"Yakin akan menghapus pelajaran ini?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Hapus",
+        closeOnConfirm: true,
+      },
+        function(){
+         $.ajax({
+          url:"<?php echo base_url('index.php/pelajaran/delete'); ?>",
+          data:{kode_pelajaran:kode_pelajaran},
+          success: function(){
+            $("tr[data-id='"+kode_pelajaran+"']").fadeOut("fast",function(){
+              $(this).remove();
+            });
+          }
+         });
+      });
+    });
+
+
+  });
+
+</script>
 </body>
 </html>

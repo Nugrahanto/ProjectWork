@@ -134,6 +134,12 @@ class Pelajaran extends CI_Controller {
 		}
 	}
 
+	public function delete(){
+		$kode_pelajaran = $this->input->post("kode_pelajaran");
+		$this->pelajaran_model->delete($kode_pelajaran);
+		echo "{}";
+	}
+
 }
 
 /* End of file pelajaran.php */

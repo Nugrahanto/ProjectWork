@@ -59,6 +59,11 @@ class Pelajaran_model extends CI_Model {
 		}
 	}
 
+	public function delete($kode_pelajaran){
+		$this->db->where("kode_pelajaran",$kode_pelajaran)
+				 ->delete("tb_pelajaran");
+	}
+
 }
 
 /* End of file pelajaran_model.php */

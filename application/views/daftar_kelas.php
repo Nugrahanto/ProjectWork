@@ -14,18 +14,19 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
+            <div class="box-header box-head">
               <div class="row">
-              <div class="col-xs-10">
-                <h3 class="box-title">Data Kelas</h3>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a href="<?php echo base_url();?>index.php/kelas/"><i class="glyphicon glyphicon-refresh"></i></a></li>
-                </ul>
-              </div>
-              <div class="col-xs-2">
-                <button type="button" class="btn btn-block btn-primary"  data-toggle="modal" data-target="#myModal">
-                <i class="glyphicon glyphicon-plus"></i>  Tambah Kelas
-                </button>
+                <div class="col-xs-10">
+                  <h3 class="box-title">Data Kelas</h3>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a href="<?php echo base_url();?>index.php/kelas/"><i class="glyphicon glyphicon-refresh"></i></a></li>
+                  </ul>
+                </div>
+                <div class="col-xs-2">
+                  <button type="button" class="btn btn-block btn-primary"  data-toggle="modal" data-target="#myModal">
+                  <i class="glyphicon glyphicon-plus"></i>  Tambah Kelas
+                  </button>
+                </div>
               </div>
             </div>
             <hr>
@@ -67,7 +68,6 @@
             </div>
           </div>
         </div>
-      </div>
 
       <div class="modal fade" id="myModal" role="dialog">
       <div class="modal-dialog modal-lg">

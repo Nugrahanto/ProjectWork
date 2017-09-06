@@ -5,7 +5,7 @@
 	                     <div class="col-lg-12">
 	                        
 	                        <div class="box-body">
-				              <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" enctype="multipart/form-data" action="update">
+				              <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" enctype="multipart/form-data" action="<?php echo base_url();?>index.php/pengaturan/update/<?php echo $this->session->userdata('nis_siswa'); ?>">
 				                      <div class="form-group">
 				                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nis">NIS <span class="required">*</span>
 				                        </label>

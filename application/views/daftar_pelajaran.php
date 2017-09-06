@@ -13,10 +13,10 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
+            <div class="box-header box-head">
               <div class="row">
               <div class="col-xs-10">
-                <h1 class="box-title">Daftar Karyawan</h1>
+                <h1 class="box-title">Daftar Pelajaran</h1>
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a href="<?php echo base_url();?>index.php/pelajaran/"><i class="glyphicon glyphicon-refresh"></i></a></li>
                 </ul>
@@ -25,6 +25,7 @@
                 <button type="button" class="btn btn-block btn-primary"  data-toggle="modal" data-target="#myModal">
                 <i class="glyphicon glyphicon-plus"></i>  Tambah Pelajaran
                 </button>
+              </div>
               </div>
             </div>
             <hr>
@@ -46,16 +47,16 @@
                             $no = 1;
                             foreach ($pelajaran as $data) {
                               echo '
-                                <tr class="odd gradeX">
+                                <tr class="odd gradeX" data-id='.$data->kode_pelajaran.'>
                                   <td>'.$no.'</td>
                                   <td>'.$data->kode_pelajaran.'</td>
                                   <td>'.$data->mata_pelajaran.'</td>
                                   <td>'.$data->lama_jam.'</td>
                                   <td>'.$data->keterangan.'</td>
                                   <td>
-                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#'.$data->kode_pelajaran.'">
+                                    <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#'.$data->kode_pelajaran.'">
                                     <i class="glyphicon glyphicon-pencil"></i> </button>
-                                    <a data href="'.base_url().'index.php/pelajaran/hapus_pelajaran/'.$data->kode_pelajaran.'" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> </a>
+                                    <button class="btn btn-sm btn-danger hapus-pelajaran" data-id='.$data->kode_pelajaran.'><i class="glyphicon glyphicon-trash"></i></button>
                                   </td>
                                 </tr>
                                 ';
@@ -69,7 +70,6 @@
             </div>
           </div>
         </div>
-      </div>
 
       <div class="modal fade" id="myModal" role="dialog">
       <div class="modal-dialog modal-lg">

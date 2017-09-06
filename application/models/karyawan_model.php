@@ -72,6 +72,11 @@ class Karyawan_model extends CI_Model {
 		}
 	}
 
+	public function delete($kode_karyawan){
+		$this->db->where("kode_karyawan",$kode_karyawan)
+				 ->delete("tb_karyawan");
+	}
+
 }
 
 /* End of file karyawan.php */

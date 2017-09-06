@@ -13,7 +13,7 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
+            <div class="box-header box-head">
               <div class="row">
               <div class="col-xs-10">
                 <h1 class="box-title">Daftar Karyawan</h1>
@@ -27,7 +27,9 @@
                 </button>
               </div>
             </div>
+            </div>
             <hr>
+
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
@@ -51,7 +53,7 @@
                             $no = 1;
                             foreach ($karyawan as $data) {
                               echo '
-                                <tr class="odd gradeX">
+                                <tr class="odd gradeX" data-id='.$data->kode_karyawan.'>
                                   <td>'.$no.'</td>
                                   <td>'.$data->kode_karyawan.'</td>
                                   <td>'.$data->nip.'</td>
@@ -63,9 +65,9 @@
                                   <td>'.$data->status.' 
                                   '.$data->mapel1.', '.$data->mapel2.' </td>
                                   <td>
-                                    <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#'.$data->kode_karyawan.'">
+                                    <button type="button" class="btn btn-sm btn-success"  data-toggle="modal" data-target="#'.$data->kode_karyawan.'">
                                     <i class="glyphicon glyphicon-pencil"></i> </button>
-                                    <a href="'.base_url().'index.php/karyawan/hapus_karyawan/'.$data->kode_karyawan.'" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> </a>
+                                    <button class="btn btn-sm btn-danger hapus-karyawan" data-id='.$data->kode_karyawan.'><i class="glyphicon glyphicon-remove"></i></button>
                                   </td>
                                 </tr>
                                 ';
@@ -76,7 +78,7 @@
                 </table>
               </div>
               <!-- /.box-body -->
-            </div>
+            
           </div>
         </div>
       </div>

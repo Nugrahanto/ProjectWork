@@ -13,13 +13,14 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
+            <div class="box-header box-head">
               <div class="row">
               <div class="col-xs-10">
                 <h1 class="box-title">Daftar Siswa</h1>
                 <ul class="nav navbar-right panel_toolbox right">
                   <li><a href="<?php echo base_url();?>index.php/siswa/"><i class="glyphicon glyphicon-refresh"></i></a></li>
                 </ul>
+              </div>
               </div>
             </div>
             <hr>
@@ -69,4 +70,3 @@
             </div>
           </div>
         </div>
-      </div>
