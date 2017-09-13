@@ -1,7 +1,7 @@
 
 
           <!-- /top tiles -->
-          <div class="row" style="background-color: lightgrey;margin: 10px;">
+          <div class="row" style="background-color: #DFE4F2;margin: 10px;">
 
             <div class="col-md-6 side2">
               <h1>TUJUAN</h1>

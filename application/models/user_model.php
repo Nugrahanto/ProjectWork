@@ -12,7 +12,7 @@ class User_model extends CI_Model {
 						  ->get('tb_siswa');
 
 		if ($query->num_rows()>0) {
-			$data = array(
+		$data = array(
 				'nis' => $username,
 				'siswa_logged_in' => TRUE,
 				'nis_siswa' 	=> $query->row()->nis,
@@ -32,6 +32,12 @@ class User_model extends CI_Model {
 			return FALSE;
 		}
 		
+	}
+
+	public function get_data_siswa()
+	{
+		return $this->db->get('tb_siswa')
+						->row();		
 	}
 
 	// public function detail_data_siswa($nis){
@@ -66,6 +72,44 @@ class User_model extends CI_Model {
 	  	    }else{
 	  	    	return FALSE;
 	  	    }
+	}
+
+	public function catatan_data_siswa($nis){
+		return $this->db->where('nis', $nis)
+				 		->get('tb_catatan')
+				 		->row();
+
+	}
+
+	// public function nilai_matematika($nis){
+	// 	return $this->db->where('nis', $nis)
+	// 			 		->get('tb_matematika')
+	// 			 		->row();
+
+	// }
+
+	public function nilai_matematika($nis){
+		return $this->db->where('nis', $nis)
+						->where('mata_pelajaran','Matematika')
+						->join('tb_pelajaran','tb_pelajaran.kode_pelajaran = tb_nilai2.kode_pelajaran')
+				 		->get('tb_nilai2')
+				 		->row();
+	}
+
+	public function nilai_fisika($nis){
+		return $this->db->where('nis', $nis)
+						->where('mata_pelajaran','Fisika')
+						->join('tb_pelajaran','tb_pelajaran.kode_pelajaran = tb_nilai2.kode_pelajaran')
+				 		->get('tb_nilai2')
+				 		->row();
+	}
+
+	public function nilai_bing($nis){
+		return $this->db->where('nis', $nis)
+						->where('mata_pelajaran','Bahasa Inggris')
+						->join('tb_pelajaran','tb_pelajaran.kode_pelajaran = tb_nilai2.kode_pelajaran')
+				 		->get('tb_nilai2')
+				 		->row();
 	}
 
 }

@@ -16,7 +16,7 @@
             <div class="box-header box-head">
               <div class="row">
               <div class="col-xs-10">
-                <h1 class="box-title">Daftar Karyawan</h1>
+                <h1 class="box-title">Daftar Karyawan</h1> <?php echo $this->db->count_all_results('tb_karyawan');?> Pelajaran
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a href="<?php echo base_url();?>index.php/karyawan/"><i class="glyphicon glyphicon-refresh"></i></a></li>
                 </ul>

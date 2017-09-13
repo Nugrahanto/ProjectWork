@@ -44,13 +44,13 @@
 	                </a>
 	            </li>
 	            <li>
-	                <a href="#mail-compose.html"><i class="fa fa-envelope-o"></i> Nilai Siswa</a>
+	                <a href="<?php echo base_url(); ?>index.php/data_nilai/nilai/<?php echo $this->session->userdata('nis'); ?>"><i class="fa fa-envelope-o"></i> Nilai Siswa</a>
 	            </li>
 	            <li>
 	                <a href="#"><i class="fa fa-certificate"></i> Info Keuangan</a>
 	            </li>
 	            <li>
-	                <a href="#">
+	                <a href="<?php echo base_url(); ?>index.php/data_catatan/catatan/<?php echo $this->session->userdata('nis'); ?>">
 	                    <i class="fa fa-file-text-o"></i> Catatan Siswa <span class="label label-info pull-right inbox-notification">35</span>
 	                </a>
 	            </li>

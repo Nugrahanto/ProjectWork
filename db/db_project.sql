@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 06, 2017 at 06:18 AM
+-- Generation Time: Sep 13, 2017 at 05:28 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -19,6 +19,56 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_project`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_catatan`
+--
+
+CREATE TABLE `tb_catatan` (
+  `id_catatan` int(5) NOT NULL,
+  `nis` varchar(100) NOT NULL,
+  `catatan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_catatan`
+--
+
+INSERT INTO `tb_catatan` (`id_catatan`, `nis`, `catatan`) VALUES
+(1, '4811/1530.070', '(1) Terlalu Lembut');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_fisika`
+--
+
+CREATE TABLE `tb_fisika` (
+  `id_nilai` int(11) NOT NULL,
+  `nis` varchar(100) NOT NULL,
+  `nama_siswa` varchar(200) NOT NULL,
+  `kelas` varchar(10) NOT NULL,
+  `mata_pelajaran` varchar(50) NOT NULL,
+  `uh1` int(3) NOT NULL,
+  `uh2` int(3) NOT NULL,
+  `uh3` int(3) NOT NULL,
+  `uh4` int(3) NOT NULL,
+  `uh5` int(3) NOT NULL,
+  `uts1` int(3) NOT NULL,
+  `uts2` int(3) NOT NULL,
+  `uas1` int(3) NOT NULL,
+  `uas2` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_fisika`
+--
+
+INSERT INTO `tb_fisika` (`id_nilai`, `nis`, `nama_siswa`, `kelas`, `mata_pelajaran`, `uh1`, `uh2`, `uh3`, `uh4`, `uh5`, `uts1`, `uts2`, `uas1`, `uas2`) VALUES
+(1, '4811/1530.070', 'Rianirsyah Dian Nugrahanto', 'XII RPL 3', 'Fisika', 90, 80, 80, 0, 0, 0, 0, 0, 0),
+(3, '1530/1148.070', 'Qonita Luthfiyani', 'X TKJ 3', 'Fisika', 0, 80, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -167,6 +217,37 @@ INSERT INTO `tb_kelas` (`kode_kelas`, `tingkat_kelas`, `nama_kelas`, `penanggung
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_matematika`
+--
+
+CREATE TABLE `tb_matematika` (
+  `id_nilai` int(11) NOT NULL,
+  `nis` varchar(100) NOT NULL,
+  `nama_siswa` varchar(200) NOT NULL,
+  `kelas` varchar(10) NOT NULL,
+  `mata_pelajaran` varchar(50) NOT NULL,
+  `uh1` int(3) NOT NULL,
+  `uh2` int(3) NOT NULL,
+  `uh3` int(3) NOT NULL,
+  `uh4` int(3) NOT NULL,
+  `uh5` int(3) NOT NULL,
+  `uts1` int(3) NOT NULL,
+  `uts2` int(3) NOT NULL,
+  `uas1` int(3) NOT NULL,
+  `uas2` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_matematika`
+--
+
+INSERT INTO `tb_matematika` (`id_nilai`, `nis`, `nama_siswa`, `kelas`, `mata_pelajaran`, `uh1`, `uh2`, `uh3`, `uh4`, `uh5`, `uts1`, `uts2`, `uas1`, `uas2`) VALUES
+(4, '1530/1148.070', 'Qonita Luthfiyani', 'X TKJ 3', 'Matematika', 90, 0, 0, 0, 0, 0, 0, 0, 0),
+(5, '4811/1530.070', 'Rianirsyah Dian Nugrahanto', 'XII RPL 3', 'Matematika', 80, 90, 95, 0, 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_nilai`
 --
 
@@ -192,8 +273,43 @@ CREATE TABLE `tb_nilai` (
 --
 
 INSERT INTO `tb_nilai` (`id_nilai`, `nis`, `nama_siswa`, `kelas`, `mata_pelajaran`, `uh1`, `uh2`, `uh3`, `uh4`, `uh5`, `uts1`, `uts2`, `uas1`, `uas2`) VALUES
-(1, '4811/1530.070', 'Rianirsyah Dian Nugrahanto', 'XII RPL 3', 'Dasar Desain Grafis (Pemrograman Web)', 80, 80, 90, 100, 90, 80, 88, 97, 80),
-(2, '1530/1148.070', 'Qonita Luthfiyani', 'X TKJ 3', 'Matematika', 80, 90, 80, 100, 100, 90, 80, 88, 90);
+(1, '4811/1530.070', 'Rianirsyah Dian Nugrahanto', 'XII RPL 3', 'Matematika', 90, 80, 90, 100, 90, 80, 88, 97, 80),
+(2, '1530/1148.070', 'Qonita Luthfiyani', 'X TKJ 3', 'Matematika', 90, 90, 80, 100, 100, 90, 80, 88, 90),
+(3, '4811/1530.070', 'Rianirsyah Dian Nugrahanto', 'XII RPL 3', 'Fisika', 90, 80, 70, 0, 0, 0, 0, 0, 0),
+(4, '1530/1148.070', 'Qonita Luthfiyani', 'X TKJ 3', 'Fisika', 90, 88, 98, 0, 0, 0, 0, 0, 0),
+(12, '4811/1530.070', 'Rianirsyah Dian Nugrahanto', 'XII RPL 3', 'Bahasa Inggris', 100, 0, 0, 0, 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_nilai2`
+--
+
+CREATE TABLE `tb_nilai2` (
+  `id_nilai` int(11) NOT NULL,
+  `nis` varchar(100) NOT NULL,
+  `kode_pelajaran` varchar(5) NOT NULL,
+  `uh1` int(3) NOT NULL,
+  `uh2` int(3) NOT NULL,
+  `uh3` int(3) NOT NULL,
+  `uh4` int(3) NOT NULL,
+  `uh5` int(3) NOT NULL,
+  `uts1` int(3) NOT NULL,
+  `uts2` int(3) NOT NULL,
+  `uas1` int(3) NOT NULL,
+  `uas2` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_nilai2`
+--
+
+INSERT INTO `tb_nilai2` (`id_nilai`, `nis`, `kode_pelajaran`, `uh1`, `uh2`, `uh3`, `uh4`, `uh5`, `uts1`, `uts2`, `uas1`, `uas2`) VALUES
+(1, '4811/1530.070', '04A', 90, 80, 90, 100, 90, 80, 88, 97, 80),
+(2, '1530/1148.070', '04A', 90, 90, 80, 100, 100, 90, 80, 88, 90),
+(3, '4811/1530.070', '02C', 90, 80, 70, 0, 0, 0, 0, 0, 0),
+(4, '1530/1148.070', '02C', 90, 88, 98, 0, 0, 0, 0, 0, 0),
+(5, '4811/1530.070', '06A', 80, 90, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -284,11 +400,24 @@ CREATE TABLE `tb_siswa` (
 
 INSERT INTO `tb_siswa` (`nis`, `nama_siswa`, `tingkat`, `jurusan`, `kelas`, `jenis_kelamin`, `agama`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `no_telp`, `angkatan`, `foto`) VALUES
 ('1530/1148.070', 'Qonita Luthfiyani', 'X', 'TKJ', 'X TKJ 3', 'Perempuan', 'Islam', 'Malang', '2001-01-01', 'Jl. Danau Kemuning', '082257883918', '26', '29. Qonita L..JPG'),
-('4811/1530.070', 'Rianirsyah Dian Nugrahanto', 'XII', 'RPL', 'XII RPL 3', 'Laki-Laki', 'Islam', 'Probolinggo', '2000-04-26', 'Jl. Danau Ranau G6B/2', '082257883916', '24', '28. Rianirsyah Dian.JPG');
+('4811/1530.070', 'Rianirsyah Dian Nugrahanto', 'XII', 'RPL', 'XII RPL 3', 'Laki-Laki', 'Islam', 'Probolinggo', '2000-04-26', 'Jl. Danau Ranau G6B/1', '082257883916', '24', '28. Rianirsyah Dian.JPG'),
+('4812/1531.071', 'Veronica Rahmanda', 'XI', 'RPL', 'XI RPL 2', 'Perempuan', 'Islam', 'Jakarta', '2000-02-17', 'Jl. Danau Kemuning 64', '082257883914', '25', '30__Pradina_A_.JPG');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `tb_catatan`
+--
+ALTER TABLE `tb_catatan`
+  ADD PRIMARY KEY (`id_catatan`);
+
+--
+-- Indexes for table `tb_fisika`
+--
+ALTER TABLE `tb_fisika`
+  ADD PRIMARY KEY (`id_nilai`);
 
 --
 -- Indexes for table `tb_karyawan`
@@ -303,9 +432,21 @@ ALTER TABLE `tb_kelas`
   ADD PRIMARY KEY (`kode_kelas`);
 
 --
+-- Indexes for table `tb_matematika`
+--
+ALTER TABLE `tb_matematika`
+  ADD PRIMARY KEY (`id_nilai`);
+
+--
 -- Indexes for table `tb_nilai`
 --
 ALTER TABLE `tb_nilai`
+  ADD PRIMARY KEY (`id_nilai`);
+
+--
+-- Indexes for table `tb_nilai2`
+--
+ALTER TABLE `tb_nilai2`
   ADD PRIMARY KEY (`id_nilai`);
 
 --
@@ -325,10 +466,30 @@ ALTER TABLE `tb_siswa`
 --
 
 --
+-- AUTO_INCREMENT for table `tb_catatan`
+--
+ALTER TABLE `tb_catatan`
+  MODIFY `id_catatan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tb_fisika`
+--
+ALTER TABLE `tb_fisika`
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `tb_matematika`
+--
+ALTER TABLE `tb_matematika`
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT for table `tb_nilai`
 --
 ALTER TABLE `tb_nilai`
-  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `tb_nilai2`
+--
+ALTER TABLE `tb_nilai2`
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

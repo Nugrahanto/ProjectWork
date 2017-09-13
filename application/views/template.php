@@ -143,8 +143,8 @@
           </ul>
         </li>
         <li><a href="<?php echo base_url(); ?>index.php/nilai/"><i class="fa fa-windows"></i> <span>Nilai</span></a></li>
-        <li><a href="#"><i class="fa fa-linux"></i> <span>Keuangan</span></a></li>
-        <li><a href="#"><i class="fa fa-pencil"></i> <span>Catatan Siswa</span></a></li>
+        <li><a href=""><i class="fa fa-linux"></i> <span>Keuangan</span></a></li>
+        <li><a href="<?php echo base_url(); ?>index.php/catatan/"><i class="fa fa-pencil"></i> <span>Catatan Siswa</span></a></li>
         <li class="header">ADMIN NAVIGATION</li>
         <li><a href="#"><i class="fa fa-gear"></i> <span>Setting</span></a></li>
       </ul>
@@ -421,8 +421,8 @@
 <script src="<?php echo base_url();?>assets/plugins/sweetalert/sweetalert.min.js"></script>
 <script type="text/javascript">
   $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
+    $(".example1").DataTable();
+    $('.example2').DataTable({
       "paging": true,
       "lengthChange": false,
       "searching": false,
@@ -485,6 +485,28 @@
       }
     });
 
+    $(document).on("keydown",".editor",function(e){
+      if(e.keyCode==13){
+        var target=$(e.target);
+        var value=target.val();
+        var id=target.attr("data-id");
+        var data={id:id,value:value};
+        if(target.is(".field-catatan")){
+          data.modul="catatan";
+        }
+
+        $.ajax({
+          data:data,
+          url:"<?php echo base_url('index.php/catatan/edit_catatan'); ?>",
+          success: function(a){
+           target.hide();
+           target.siblings("span[class~='caption']").html(value).fadeIn();
+          }
+        })
+        
+      }
+    });
+
     $(document).on("click",".hapus-karyawan",function(){
       var kode_karyawan=$(this).attr("data-id");
       swal({
@@ -528,6 +550,89 @@
             });
           }
          });
+      });
+    });
+
+    $(document).on("click",".hapus-data-nilai-matematika",function(){
+      var id_nilai=$(this).attr("data-id-mtk");
+      swal({
+        title:"Hapus Data Nilai Siswa",
+        text:"Yakin akan menghapus data nilai siswa ini?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Hapus",
+        closeOnConfirm: true,
+      },
+        function(){
+         $.ajax({
+          url:"<?php echo base_url('index.php/nilai/delete_matematika'); ?>",
+          data:{id_nilai:id_nilai},
+          success: function(){
+            $("tr[data-id-mtk='"+id_nilai+"']").fadeOut("fast",function(){
+              $(this).remove();
+            });
+          }
+         });
+      });
+    });
+
+    $(document).on("click",".hapus-data-nilai-fisika",function(){
+      var id_nilai=$(this).attr("data-id-fsk");
+      swal({
+        title:"Hapus Data Nilai Siswa",
+        text:"Yakin akan menghapus data nilai siswa ini?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Hapus",
+        closeOnConfirm: true,
+      },
+        function(){
+         $.ajax({
+          url:"<?php echo base_url('index.php/nilai/delete_fisika'); ?>",
+          data:{id_nilai:id_nilai},
+          success: function(){
+            $("tr[data-id-fisika='"+id_nilai+"']").fadeOut("fast",function(){
+              $(this).remove();
+            });
+          }
+         });
+      });
+    });
+
+    $(document).on("click",".hapus-data-catatan",function(){
+      var id_catatan=$(this).attr("data-id");
+      swal({
+        title:"Hapus Data Catatan Siswa",
+        text:"Yakin akan menghapus data catatan siswa ini?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Hapus",
+        closeOnConfirm: true,
+      },
+        function(){
+         $.ajax({
+          url:"<?php echo base_url('index.php/catatan/delete'); ?>",
+          data:{id_catatan:id_catatan},
+          success: function(){
+            $("tr[data-id='"+id_catatan+"']").fadeOut("fast",function(){
+              $(this).remove();
+            });
+          }
+         });
+      });
+    });
+
+    $(document).on("click",".info-data-catatan",function(){
+      var id_catatan=$(this).attr("info");
+      swal({
+        title:"Info Data Catatan Siswa",
+        text:"Contoh pengisian :\n (1) .... (2) .... ",
+        type: "info",
+        confirmButtonText: false,
+        closeOnConfirm: true,
+      },
+        function(){
+         
       });
     });
 
